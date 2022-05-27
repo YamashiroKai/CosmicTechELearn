@@ -1,4 +1,3 @@
-using Example_Routing.Data;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -10,8 +9,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using ELearn.Data;
 
-namespace Example_Routing
+namespace ELearn
 {
     public class Startup
     {
@@ -25,9 +25,7 @@ namespace Example_Routing
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            
             services.AddControllersWithViews();
-
             services.AddDbContext<ApplicationDBContext>(options =>
               options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"))
             );
@@ -55,12 +53,6 @@ namespace Example_Routing
 
             app.UseEndpoints(endpoints =>
             {
-                //endpoints.MapControllerRoute(
-                //    name: "blog",
-                //    pattern: "blog/{*article}",
-                //    defaults: new { controller = "blog", action = "Article" });
-
-
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
