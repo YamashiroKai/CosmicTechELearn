@@ -1,4 +1,4 @@
-﻿using Assignment_2.Models;
+﻿using Example_Routing.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
@@ -7,7 +7,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Assignment_2.Controllers
+namespace Example_Routing.Controllers
 {
     public class HomeController : Controller
     {
