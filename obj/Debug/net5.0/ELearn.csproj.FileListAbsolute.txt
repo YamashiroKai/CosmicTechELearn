@@ -142,3 +142,16 @@ C:\Users\user\Desktop\ONT Proj\Project\ELearn\bin\Debug\net5.0\zh-Hant\Microsoft
 C:\Users\user\Desktop\ONT Proj\Project\ELearn\bin\Debug\net5.0\runtimes\win-arm\lib\net5.0\dotnet-aspnet-codegenerator-design.exe
 C:\Users\user\Desktop\ONT Proj\Project\ELearn\bin\Debug\net5.0\runtimes\win-arm64\lib\net5.0\dotnet-aspnet-codegenerator-design.exe
 C:\Users\user\Desktop\ONT Proj\Project\ELearn\obj\Debug\net5.0\Razor\Views\Home\LogIn.cshtml.g.cs
+C:\Users\user\Desktop\ONT Proj\Project\ELearn\bin\Debug\net5.0\bin1\Debug\net05.0\appsettings.Development.json
+C:\Users\user\Desktop\ONT Proj\Project\ELearn\bin\Debug\net5.0\bin1\Debug\net05.0\appsettings.json
+C:\Users\user\Desktop\ONT Proj\Project\ELearn\bin\Debug\net5.0\bin1\Debug\net05.0\Assignment 2.deps.json
+C:\Users\user\Desktop\ONT Proj\Project\ELearn\bin\Debug\net5.0\bin1\Debug\net05.0\Assignment 2.runtimeconfig.dev.json
+C:\Users\user\Desktop\ONT Proj\Project\ELearn\bin\Debug\net5.0\bin1\Debug\net05.0\Assignment 2.runtimeconfig.json
+C:\Users\user\Desktop\ONT Proj\Project\ELearn\bin\Debug\net5.0\bin1\Debug\net05.0\ELearn.deps.json
+C:\Users\user\Desktop\ONT Proj\Project\ELearn\bin\Debug\net5.0\bin1\Debug\net05.0\ELearn.runtimeconfig.dev.json
+C:\Users\user\Desktop\ONT Proj\Project\ELearn\bin\Debug\net5.0\bin1\Debug\net05.0\ELearn.runtimeconfig.json
+C:\Users\user\Desktop\ONT Proj\Project\ELearn\obj\Debug\net5.0\Razor\Views\Lecturer\Dashboard.cshtml.g.cs
+C:\Users\user\Desktop\ONT Proj\Project\ELearn\obj\Debug\net5.0\Razor\Views\Lecturer\Submission.cshtml.g.cs
+C:\Users\user\Desktop\ONT Proj\Project\ELearn\obj\Debug\net5.0\Razor\Views\Home\IndexNull.cshtml.g.cs
+C:\Users\user\Desktop\ONT Proj\Project\ELearn\obj\Debug\net5.0\Razor\Views\Home\IndexPassword.cshtml.g.cs
+C:\Users\user\Desktop\ONT Proj\Project\ELearn\obj\Debug\net5.0\Razor\Views\Home\IndexUn.cshtml.g.cs
