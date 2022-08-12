@@ -1,32 +1,106 @@
-﻿using ELearn.Models;
+﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
+using System.Diagnostics;
+using Microsoft.Extensions.Logging;
+using ELearn.Data;
+using ELearn.Models;
 
 namespace ELearn.Controllers
 {
     public class LecturerController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
+        private readonly ApplicationDbContext _db;
 
-        public IActionResult Dashboard()
+        public LecturerController(ApplicationDbContext db)
+        {
+            _db = db;
+        }
+
+        public ActionResult MatIndex()
+        {
+            IEnumerable<Material> objList = _db.Materials;
+            return View(objList);
+        }
+
+        // GET: MaterialsController/Details/5
+        public ActionResult MatDetails(int id)
         {
             return View();
         }
 
-        public IActionResult Submission()
+        // GET: MaterialsController/Create
+        public ActionResult MatCreate()
         {
             return View();
         }
 
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
+        // POST: MaterialsController/Create
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult MatCreate(Material obj)
         {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+            if (ModelState.IsValid)
+            {
+                _db.Materials.Add(obj);
+                _db.SaveChanges();
+                return RedirectToAction("MatIndex");
+            }
+            return View(obj);
+        }
+
+        // GET: MaterialsController/Edit/5
+        public ActionResult MatEdit(int? id)
+        {
+            if (id == null || id == 0)
+            {
+                return NotFound();
+            }
+
+            var obj = _db.Materials.Find(id);
+            if (obj == null)
+            {
+                return NotFound();
+            }
+
+            return View(obj);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult MatEdit(Material obj)
+        {
+            _db.Materials.Update(obj);
+            _db.SaveChanges();
+            return RedirectToAction("MatIndex");
+        }
+
+        public ActionResult MatDelete(int? id)
+        {
+            if (id == null || id == 0)
+            {
+                return NotFound();
+            }
+
+            var obj = _db.Materials.Find(id);
+            if (obj == null)
+            {
+                return NotFound();
+            }
+
+            return View(obj);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult MatDelete(Material obj)
+        {
+            _db.Materials.Remove(obj);
+            _db.SaveChanges();
+            return RedirectToAction("MatIndex");
         }
     }
 }
