@@ -1,10 +1,9 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.RazorPages;
-using System;
-using System.ComponentModel;
+﻿using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Collections.Generic;
+using Microsoft.AspNetCore.Mvc.Rendering;
+using System;
 
 //Assignment of ID to AspNetUsers should be automatic on registration
 
@@ -31,7 +30,23 @@ namespace ELearn.Models
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}")]
         public DateTime JoinDate { get; set; }
 
+        [DisplayName("Fees Due")]
         public int AmountDue { get; set; }
+
+        [Required(ErrorMessage = "Sponsor ID cannot be empty.")]
+        [DisplayName("Sponsor ID")]
+        [ForeignKey("Sponsors")]
+        public int SponsorID { get; set; }
+
+        [NotMapped]
+        public List<SelectListItem> Sponsors { set; get; }
+
+        [DisplayName("Accomodation ID")]
+        [ForeignKey("Accomodations")]
+        public int AccomID { get; set; }
+
+        [NotMapped]
+        public List<SelectListItem> Accomodations { set; get; }
 
         public bool Active { get; set; }
     }

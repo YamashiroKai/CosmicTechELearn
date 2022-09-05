@@ -1,9 +1,8 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.RazorPages;
-using System.ComponentModel;
+﻿using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Collections.Generic;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 //Can be edited by HoD. Viewable by all.
 
@@ -22,7 +21,7 @@ namespace ELearn.Models
 
         [DisplayName("Required Credit")]
         [Required(ErrorMessage = "Required credit cannot be empty.")]
-        public double CreditRequired { get; set; }
+        public int CreditRequired { get; set; }
 
         public bool Active { get; set; }
     }

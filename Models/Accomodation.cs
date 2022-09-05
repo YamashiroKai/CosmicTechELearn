@@ -6,17 +6,16 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace ELearn.Models
 {
-    public class Office
+    public class Accomodation
     {
         [Key]
-        public int OfficeID { get; set; }
+        public int AccomID { get; set; }
 
         [Required(ErrorMessage = "Building cannot be empty.")]
-        [DisplayName("Building Name")]
+        [DisplayName("Building/Room Name")]
         public string BuildingName { get; set; }
 
-        [Required(ErrorMessage = "Location cannot be empty.")]
-        [DisplayName("Location/Campus")]
-        public string Location { get; set; }
+        [Required(ErrorMessage = "Address cannot be empty.")]
+        public string Address { get; set; }
     }
 }

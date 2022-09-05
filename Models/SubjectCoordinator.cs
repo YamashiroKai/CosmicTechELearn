@@ -1,9 +1,8 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.RazorPages;
-using System.ComponentModel;
+﻿using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Collections.Generic;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace ELearn.Models
 {
@@ -15,8 +14,14 @@ namespace ELearn.Models
         [ForeignKey("AspNetUsers")]
         public string Id { get; set; }
 
-        [ForeignKey("Office")]
+        [Required(ErrorMessage = "Office ID cannot be empty.")]
+        [DisplayName("Office ID")]
+        [ForeignKey("Offices")]
         public int OfficeID { get; set; }
-        public Office Office { get; set; }
+
+        [NotMapped]
+        public List<SelectListItem> Offices { set; get; }
+
+        public bool Active { get; set; }
     }
 }

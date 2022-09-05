@@ -1,12 +1,8 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.RazorPages;
-using System.ComponentModel;
-using System;
+﻿using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using Microsoft.AspNetCore.Mvc.Rendering;
 using System.Collections.Generic;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 //Viewable by students and lecturers of a particular module
 
@@ -17,13 +13,17 @@ namespace ELearn.Models
         [Key]
         public int ID { get; set; }
 
-        [ForeignKey("Submission")]
+        [Required(ErrorMessage = "Submission cannot be empty.")]
+        [DisplayName("Submission ID")]
+        [ForeignKey("Submissions")]
         public int SubID { get; set; }
 
         [NotMapped]
         public List<SelectListItem> Submissions { set; get; }
 
-        [ForeignKey("Student")]
+        [Required(ErrorMessage = "Student ID cannot be empty")]
+        [DisplayName("Student ID")]
+        [ForeignKey("Students")]
         public int StudentID { get; set; }
 
         [NotMapped]
@@ -33,7 +33,7 @@ namespace ELearn.Models
         [DisplayName("File Link")]
         public string FileLink { get; set; }
 
-        public int Grade { get; set; }
+        public double Grade { get; set; }
     }
 
 

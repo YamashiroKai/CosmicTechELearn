@@ -1,11 +1,8 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.AspNetCore.Mvc.Rendering;
-using System.Collections.Generic;
-using System.ComponentModel;
+﻿using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Collections.Generic;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 //Should be visible to HOD,SC, and lecturers/students approved for module.
 //Lecturer can edit
@@ -18,8 +15,8 @@ namespace ELearn.Models
         public int MatID { get; set; }
 
         //One module can have many material
-        [Required(ErrorMessage = "Module Code cannot be empty.")]
-        [DisplayName("Module Code")]
+        [Required(ErrorMessage = "Module ID cannot be empty.")]
+        [DisplayName("Module ID")]
         [ForeignKey("Modules")]
         public string ModID { get; set; }
 
