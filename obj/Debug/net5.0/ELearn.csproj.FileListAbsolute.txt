@@ -198,7 +198,6 @@ C:\Users\user\Desktop\ONT Proj\Project\ELearn2\ELearn\ELearn\obj\Debug\net5.0\Ra
 C:\Users\user\Desktop\ONT Proj\Project\ELearn2\ELearn\ELearn\obj\Debug\net5.0\Razor\Areas\Identity\Pages\_ViewStart.cshtml.g.cs
 C:\Users\user\Desktop\ONT Proj\Project\ELearn2\ELearn\ELearn\obj\Debug\net5.0\Razor\Views\Lecturer\MatCreate.cshtml.g.cs
 C:\Users\user\Desktop\ONT Proj\Project\ELearn2\ELearn\ELearn\obj\Debug\net5.0\Razor\Views\Lecturer\MatDelete.cshtml.g.cs
-C:\Users\user\Desktop\ONT Proj\Project\ELearn2\ELearn\ELearn\obj\Debug\net5.0\Razor\Views\Lecturer\MatDetails.cshtml.g.cs
 C:\Users\user\Desktop\ONT Proj\Project\ELearn2\ELearn\ELearn\obj\Debug\net5.0\Razor\Views\Lecturer\MatEdit.cshtml.g.cs
 C:\Users\user\Desktop\ONT Proj\Project\ELearn2\ELearn\ELearn\obj\Debug\net5.0\Razor\Views\Lecturer\MatIndex.cshtml.g.cs
 C:\Users\user\Desktop\ONT Proj\Project\ELearn2\ELearn\ELearn\obj\Debug\net5.0\Razor\Pages\_ValidationScriptsPartial.cshtml.g.cs
@@ -213,14 +212,4 @@ C:\Users\user\Desktop\ONT Proj\Project\ELearn2\ELearn\ELearn\obj\Debug\net5.0\Ra
 C:\Users\user\Desktop\ONT Proj\Project\ELearn2\ELearn\ELearn\obj\Debug\net5.0\Razor\Views\Lecturer\SubDelete.cshtml.g.cs
 C:\Users\user\Desktop\ONT Proj\Project\ELearn2\ELearn\ELearn\obj\Debug\net5.0\Razor\Views\Lecturer\SubIndex.cshtml.g.cs
 C:\Users\user\Desktop\ONT Proj\Project\ELearn2\ELearn\ELearn\obj\Debug\net5.0\Razor\Views\Lecturer\SubStuIndex.cshtml.g.cs
-C:\Users\user\Desktop\ONT Proj\Project\ELearn2\ELearn\ELearn\obj\Debug\net5.0\Razor\Views\Lecturer\Dashboard - Copy.cshtml.g.cs
 C:\Users\user\Desktop\ONT Proj\Project\ELearn2\ELearn\ELearn\obj\Debug\net5.0\Razor\Views\Lecturer\Report.cshtml.g.cs
-C:\Users\user\Desktop\ONT Proj\Project\ELearn2\ELearn\ELearn\bin\Debug\net5.0\System.Web.Mvc.dll
-C:\Users\user\Desktop\ONT Proj\Project\ELearn2\ELearn\ELearn\bin\Debug\net5.0\System.Web.Razor.dll
-C:\Users\user\Desktop\ONT Proj\Project\ELearn2\ELearn\ELearn\bin\Debug\net5.0\System.Web.Helpers.dll
-C:\Users\user\Desktop\ONT Proj\Project\ELearn2\ELearn\ELearn\bin\Debug\net5.0\System.Web.WebPages.Deployment.dll
-C:\Users\user\Desktop\ONT Proj\Project\ELearn2\ELearn\ELearn\bin\Debug\net5.0\System.Web.WebPages.Razor.dll
-C:\Users\user\Desktop\ONT Proj\Project\ELearn2\ELearn\ELearn\bin\Debug\net5.0\System.Web.WebPages.dll
-C:\Users\user\Desktop\ONT Proj\Project\ELearn2\ELearn\ELearn\bin\Debug\net5.0\Microsoft.Web.Infrastructure.dll
-C:\Users\user\Desktop\ONT Proj\Project\ELearn2\ELearn\ELearn\bin\Debug\net5.0\PagedList.dll
-C:\Users\user\Desktop\ONT Proj\Project\ELearn2\ELearn\ELearn\bin\Debug\net5.0\PagedList.Mvc.dll
