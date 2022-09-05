@@ -88,7 +88,7 @@ namespace ELearn.Controllers
                                   .Select(a => new SelectListItem()
                                   {
                                       Value = a.ModID.ToString(),
-                                      Text = a.ModCode
+                                      Text = a.Name
                                   })
                                   .ToList();
 
@@ -124,7 +124,7 @@ namespace ELearn.Controllers
                                   .Select(a => new SelectListItem()
                                   {
                                       Value = a.ModID.ToString(),
-                                      Text = a.ModCode
+                                      Text = a.Name
                                   })
                                   .ToList();
 
@@ -156,7 +156,7 @@ namespace ELearn.Controllers
                                   .Select(a => new SelectListItem()
                                   {
                                       Value = a.ModID.ToString(),
-                                      Text = a.ModCode
+                                      Text = a.Name
                                   })
                                   .ToList();
 
