@@ -1,6 +1,8 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.AspNetCore.Mvc.Rendering;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -17,19 +19,25 @@ namespace ELearn.Models
 
         //One module can have many material
         [Required(ErrorMessage = "Module Code cannot be empty.")]
-        [ForeignKey("Module")]
         [DisplayName("Module Code")]
-        public string ModCode { get; set; }
+        [ForeignKey("Modules")]
+        public string ModID { get; set; }
+
+        [NotMapped]
+        public List<SelectListItem> Modules { set; get; }
 
         public int Week { get; set; }
 
         [Required(ErrorMessage = "File link cannot be empty.")]
         [DisplayName("File Link")]
         public string FileLink { get; set; }
+
+        [Required(ErrorMessage = "Description cannot be empty.")]
         public string Description { get; set; }
 
-        //Lecturer can hide material instead of deleting it
-        [DisplayName("Visible")]
+        //Sub Co needs to approve it before it will be visible to students
+        [DisplayName("Approved")]
+        [Required]
         public bool Active { get; set; }
 
     }

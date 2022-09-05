@@ -5,6 +5,8 @@ using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
+//Assignment of ID to AspNetUsers should be automatic on registration
+
 namespace ELearn.Models
 {
     public class HeadOfDepartment
@@ -17,5 +19,6 @@ namespace ELearn.Models
 
         [ForeignKey("Office")]
         public int OfficeID { get; set; }
+        public Office Office { get; set; }
     }
 }

@@ -1,0 +1,71 @@
+﻿@model IEnumerable<ELearn.Models.Submission>
+
+@{
+    ViewData["Title"] = "Submission Slots";
+}
+
+<h1>Submission Slots</h1>
+
+<p>
+    <a asp-action="SubCreate">Add new slot</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ModID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Week)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StartDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DueDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FileLink)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Active)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ModID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Week)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StartDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DueDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FileLink)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Active)
+            </td>
+            <td>
+                <a asp-action="SubEdit" asp-route-id="@item.SubID">Edit</a> |
+                <a asp-action="SubDelete" asp-route-id="@item.SubID">Delete</a> |
+                <a asp-action="SubStuIndex" asp-route-id="@item.SubID">View Student Uploads</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

@@ -13,14 +13,15 @@ namespace ELearn.Models
     {
         [ForeignKey("Course")]
         public int CourseID { get; set; }
+        public Course Course { get; set; }
 
         [ForeignKey("Module")]
         public int ModID { get; set; }
+        public Module Module { get; set; }
 
         [Key]
         public int ID { get; set; }
 
-       
         public bool Approved { get; set; }
     }
 }

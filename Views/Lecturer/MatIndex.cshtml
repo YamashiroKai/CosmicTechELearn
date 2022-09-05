@@ -4,7 +4,7 @@
     ViewData["Title"] = "Material";
 }
 
-<h1>Material</h1>
+<h1>Study Material</h1>
 
 <p>
     <a asp-action="MatCreate">Add new material</a>
@@ -13,10 +13,10 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Week)
+                @Html.ActionLink("Module", "MatIndex", new { sortOrder = ViewBag.SortMod })
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.ModCode)
+                @Html.ActionLink("Week", "MatIndex", new { sortOrder = ViewBag.SortWeek })
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.FileLink)
@@ -25,24 +25,23 @@
                 @Html.DisplayNameFor(model => model.Description)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Active)
+                @Html.ActionLink("Approved", "MatIndex", new { sortOrder = ViewBag.SortApproved })
             </th>
-            <th></th>
         </tr>
     </thead>
     <tbody>
 @foreach (var item in Model) {
-        if (item.Active == true)
+        //if (item.Active == true)
         {
         <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ModID)
+            </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Week)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.ModCode)
-            </td>
-            <td>
-                <a href=@Html.DisplayFor(modelItem => item.FileLink)>Click Here</a>
+                <a href=@Html.DisplayFor(modelItem => item.FileLink)>@Html.DisplayFor(modelItem => item.FileLink)</a>
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Description)

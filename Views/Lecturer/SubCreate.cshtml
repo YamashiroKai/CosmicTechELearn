@@ -1,23 +1,36 @@
-﻿@model ELearn.Models.Material
+﻿@model ELearn.Models.Submission
 
 @{
-    ViewData["Title"] = "Add New Material";
+    ViewData["Title"] = "Add New Submission Slot";
 }
 
-<h1>Add New Study Material</h1>
+<h1>Add New Submission Slot</h1>
+
+<h4>Submission</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
-        <form asp-action="MatCreate">
+        <form asp-action="SubCreate">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-               Module Code
-               <select asp-for="ModID" asp-items="@Model.Modules"></select>
+                Module Code
+                <input asp-for="ModID" class="form-control" />
+                <span asp-validation-for="ModID" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Week" class="control-label"></label>
                 <input asp-for="Week" class="form-control" />
                 <span asp-validation-for="Week" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="StartDate" class="control-label"></label>
+                <input asp-for="StartDate" class="form-control" />
+                <span asp-validation-for="StartDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DueDate" class="control-label"></label>
+                <input asp-for="DueDate" class="form-control" />
+                <span asp-validation-for="DueDate" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="FileLink" class="control-label"></label>
@@ -31,7 +44,7 @@
             </div>
             <div class="form-group form-check">
                 <label class="form-check-label">
-                    <input class="form-check-input" asp-for="Active" value="True" disabled unchecked/> @Html.DisplayNameFor(model => model.Active)
+                    <input class="form-check-input" asp-for="Active" /> @Html.DisplayNameFor(model => model.Active)
                 </label>
             </div>
             <div class="form-group">
@@ -42,7 +55,7 @@
 </div>
 
 <div>
-    <a asp-action="MatIndex">Back to List</a>
+    <a asp-action="SubIndex">Back to List</a>
 </div>
 
 @section Scripts {

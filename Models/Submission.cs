@@ -38,8 +38,7 @@ namespace ELearn.Models
         public string FileLink { get; set; }
         public string Description { get; set; }
 
-        //Lecturer can hide material instead of deleting it
-        [DisplayName("Active")]
+        [DisplayName("Approved")]
         public bool Active { get; set; }
     }
 }

@@ -7,16 +7,15 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ELearn.Models
 {
-    public class SubjectCoordinator
+    public class Office
     {
         [Key]
-        public int SubjectCoID { get; set; }
-
-        [ForeignKey("AspNetUsers")]
-        public string Id { get; set; }
-
-        [ForeignKey("Office")]
         public int OfficeID { get; set; }
-        public Office Office { get; set; }
+
+        [DisplayName("Building Name")]
+        public string BuildingName { get; set; }
+
+        [DisplayName("Location/Campus")]
+        public string Location { get; set; }
     }
 }

@@ -14,9 +14,11 @@ namespace ELearn.Models
     {
         [ForeignKey("Lecturer")]
         public int LecturerID { get; set; }
+        public Lecturer Lecturer { get; set; }
 
         [ForeignKey("Module")]
         public int ModID { get; set; }
+        public Module Module { get; set; }
 
         [Key]
         public int ID { get; set; }
