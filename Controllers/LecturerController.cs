@@ -174,9 +174,46 @@ namespace ELearn.Controllers
 
         /// Submissions
 
-        public ActionResult SubIndex()
+        public ActionResult SubIndex(string sortOrder, string searchString)
         {
+            ViewBag.SortWeek = String.IsNullOrEmpty(sortOrder) ? "week_desc" : "";
+            ViewBag.SortMod = sortOrder == "mod_asc" ? "mod_desc" : "mod_asc";
+            ViewBag.SortDue = sortOrder == "due_asc" ? "due_desc" : "due_asc";
+            ViewBag.SortStart = sortOrder == "start_asc" ? "start_desc" : "start_asc";
+
             IEnumerable<Submission> objList = _db.Submissions;
+
+            if (!String.IsNullOrEmpty(searchString))
+                objList = objList.Where(s => s.Description.Contains(searchString));
+
+            switch (sortOrder)
+            {
+                case "week_desc":
+                    objList = objList.OrderByDescending(s => s.Week);
+                    break;
+                case "mod_asc":
+                    objList = objList.OrderBy(s => s.ModID);
+                    break;
+                case "mod_desc":
+                    objList = objList.OrderByDescending(s => s.ModID);
+                    break;
+                case "due_asc":
+                    objList = objList.OrderBy(s => s.DueDate);
+                    break;
+                case "due_desc":
+                    objList = objList.OrderByDescending(s => s.DueDate);
+                    break;
+                case "start_asc":
+                    objList = objList.OrderBy(s => s.StartDate);
+                    break;
+                case "start_desc":
+                    objList = objList.OrderByDescending(s => s.StartDate);
+                    break;
+                default:
+                    objList = objList.OrderBy(s => s.Week);
+                    break;
+            }
+
             return View(objList);
         }
 
@@ -187,7 +224,16 @@ namespace ELearn.Controllers
 
         public ActionResult SubCreate()
         {
-            return View();
+            var obj = new Submission();
+            obj.Modules = _db.Modules
+                                  .Select(a => new SelectListItem()
+                                  {
+                                      Value = a.ModID.ToString(),
+                                      Text = a.Name
+                                  })
+                                  .ToList();
+
+            return View(obj);
         }
 
         [HttpPost]
@@ -205,10 +251,6 @@ namespace ELearn.Controllers
 
         public ActionResult SubEdit(int? id)
         {
-            List<Module> ModuleList = new List<Module>();
-            string sqlQuery = "execute sp_GetBookAuthors @bookname = 'Book A'";
-            //var result = _db.GetBookAuthors(sqlQuery);
-
             if (id == null || id == 0)
             {
                 return NotFound();
@@ -219,6 +261,13 @@ namespace ELearn.Controllers
             {
                 return NotFound();
             }
+            obj.Modules = _db.Modules
+                                  .Select(a => new SelectListItem()
+                                  {
+                                      Value = a.ModID.ToString(),
+                                      Text = a.Name
+                                  })
+                                  .ToList();
 
             return View(obj);
         }
@@ -259,28 +308,36 @@ namespace ELearn.Controllers
 
         public ActionResult SubStuIndex(int? id)
         {
-            
-            //if (id == null || id == 0)
-            //{
-            //    return NoSubmissions();
-            //}
-            // var obj = _db.Submissions_Students.Find(id);
-            //if (obj == null)
-            //{
-            //    return NoSubmissions();
-            //}
+            ViewBag.ID = id;
+
             IEnumerable<Submission_Student> objList = _db.Submissions_Students;
             return View(objList);
         }
 
-        public ActionResult SubStuGrade(int id)
+        public ActionResult SubStuGrade(int? id)
         {
-            return View();
+
+            if (id == null || id == 0)
+            {
+                return NotFound();
+            }
+
+            var obj = _db.Submissions_Students.Find(id);
+            if (obj == null)
+            {
+                return NotFound();
+            }
+
+            return View(obj);
         }
 
-        public ActionResult NoSubmissions()
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult SubStuGrade(Submission_Student obj)
         {
-            return View();
+            _db.Submissions_Students.Update(obj);
+            _db.SaveChanges();
+            return RedirectToAction("SubIndex");
         }
 
         public ActionResult Report()
