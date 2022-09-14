@@ -3,6 +3,7 @@
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
     <UserSecretsId>aspnet-ELearn-DC6F452D-5228-434B-AE37-DBF977A8934C</UserSecretsId>
+    <OutputType>WinExe</OutputType>
   </PropertyGroup>
 
   <ItemGroup>
