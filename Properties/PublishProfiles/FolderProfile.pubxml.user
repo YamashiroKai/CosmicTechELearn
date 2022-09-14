@@ -1,0 +1,386 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+https://go.microsoft.com/fwlink/?LinkID=208121.
+-->
+<Project>
+  <PropertyGroup>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+    <_PublishTargetUrl>C:\Users\user\Desktop\ONT Proj\Project\00</_PublishTargetUrl>
+    <History>True|2022-09-13T21:16:08.0945309Z;True|2022-09-09T16:18:35.4546927+02:00;False|2022-09-09T16:13:54.9204882+02:00;False|2022-09-08T21:19:50.7625330+02:00;False|2022-09-08T21:15:46.7473338+02:00;False|2022-09-08T20:59:14.1104753+02:00;False|2022-09-08T20:58:08.4227048+02:00;False|2022-09-08T20:57:01.3703877+02:00;False|2022-09-08T20:52:44.2212388+02:00;False|2022-09-08T20:39:43.9196582+02:00;False|2022-09-08T20:38:40.4913104+02:00;False|2022-09-08T20:36:39.6351648+02:00;False|2022-09-08T20:30:18.7670102+02:00;False|2022-09-08T20:26:01.2394083+02:00;</History>
+  </PropertyGroup>
+  <ItemGroup>
+    <DestinationConnectionStrings Include="DefaultConnection">
+      <Value>Server=DESKTOP-EC112KL%3bDatabase=GRP26-CosmicTechDB%3bTrusted_Connection=True</Value>
+    </DestinationConnectionStrings>
+  </ItemGroup>
+  <ItemGroup>
+    <EFMigrations Include="ELearn.Data.ApplicationDbContext">
+      <Value>Server=DESKTOP-EC112KL%3bDatabase=GRP26-CosmicTechDB%3bTrusted_Connection=True</Value>
+    </EFMigrations>
+  </ItemGroup>
+  <ItemGroup>
+    <File Include="Areas/Identity/IdentityHostingStartup.cs">
+      <publishTime>08/07/2022 22:02:15</publishTime>
+    </File>
+    <File Include="Areas/Identity/Pages/Account/AccessDenied.cshtml">
+      <publishTime>08/07/2022 20:31:34</publishTime>
+    </File>
+    <File Include="Areas/Identity/Pages/Account/AccessDenied.cshtml.cs">
+      <publishTime>08/07/2022 20:31:31</publishTime>
+    </File>
+    <File Include="Areas/Identity/Pages/Account/ConfirmEmail.cshtml">
+      <publishTime>08/07/2022 20:31:34</publishTime>
+    </File>
+    <File Include="Areas/Identity/Pages/Account/ConfirmEmail.cshtml.cs">
+      <publishTime>08/07/2022 20:31:31</publishTime>
+    </File>
+    <File Include="Areas/Identity/Pages/Account/ConfirmEmailChange.cshtml">
+      <publishTime>08/07/2022 20:31:34</publishTime>
+    </File>
+    <File Include="Areas/Identity/Pages/Account/ConfirmEmailChange.cshtml.cs">
+      <publishTime>08/07/2022 20:31:31</publishTime>
+    </File>
+    <File Include="Areas/Identity/Pages/Account/ExternalLogin.cshtml">
+      <publishTime>08/07/2022 20:31:34</publishTime>
+    </File>
+    <File Include="Areas/Identity/Pages/Account/ExternalLogin.cshtml.cs">
+      <publishTime>08/07/2022 20:31:31</publishTime>
+    </File>
+    <File Include="Areas/Identity/Pages/Account/ForgotPassword.cshtml">
+      <publishTime>08/07/2022 20:31:34</publishTime>
+    </File>
+    <File Include="Areas/Identity/Pages/Account/ForgotPassword.cshtml.cs">
+      <publishTime>08/07/2022 20:31:31</publishTime>
+    </File>
+    <File Include="Areas/Identity/Pages/Account/ForgotPasswordConfirmation.cshtml">
+      <publishTime>08/07/2022 20:31:34</publishTime>
+    </File>
+    <File Include="Areas/Identity/Pages/Account/ForgotPasswordConfirmation.cshtml.cs">
+      <publishTime>08/07/2022 20:31:31</publishTime>
+    </File>
+    <File Include="Areas/Identity/Pages/Account/Lockout.cshtml">
+      <publishTime>08/07/2022 20:31:34</publishTime>
+    </File>
+    <File Include="Areas/Identity/Pages/Account/Lockout.cshtml.cs">
+      <publishTime>08/07/2022 20:31:31</publishTime>
+    </File>
+    <File Include="Areas/Identity/Pages/Account/Login.cshtml">
+      <publishTime>08/07/2022 20:31:34</publishTime>
+    </File>
+    <File Include="Areas/Identity/Pages/Account/Login.cshtml.cs">
+      <publishTime>08/07/2022 20:31:31</publishTime>
+    </File>
+    <File Include="Areas/Identity/Pages/Account/LoginWith2fa.cshtml">
+      <publishTime>08/07/2022 20:31:34</publishTime>
+    </File>
+    <File Include="Areas/Identity/Pages/Account/LoginWith2fa.cshtml.cs">
+      <publishTime>08/07/2022 20:31:31</publishTime>
+    </File>
+    <File Include="Areas/Identity/Pages/Account/LoginWithRecoveryCode.cshtml">
+      <publishTime>08/07/2022 20:31:34</publishTime>
+    </File>
+    <File Include="Areas/Identity/Pages/Account/LoginWithRecoveryCode.cshtml.cs">
+      <publishTime>08/07/2022 20:31:31</publishTime>
+    </File>
+    <File Include="Areas/Identity/Pages/Account/Logout.cshtml">
+      <publishTime>08/07/2022 20:31:34</publishTime>
+    </File>
+    <File Include="Areas/Identity/Pages/Account/Logout.cshtml.cs">
+      <publishTime>08/07/2022 20:31:32</publishTime>
+    </File>
+    <File Include="Areas/Identity/Pages/Account/Manage/ChangePassword.cshtml">
+      <publishTime>08/07/2022 20:31:35</publishTime>
+    </File>
+    <File Include="Areas/Identity/Pages/Account/Manage/ChangePassword.cshtml.cs">
+      <publishTime>08/07/2022 20:31:32</publishTime>
+    </File>
+    <File Include="Areas/Identity/Pages/Account/Manage/DeletePersonalData.cshtml">
+      <publishTime>08/07/2022 20:31:35</publishTime>
+    </File>
+    <File Include="Areas/Identity/Pages/Account/Manage/DeletePersonalData.cshtml.cs">
+      <publishTime>08/07/2022 20:31:32</publishTime>
+    </File>
+    <File Include="Areas/Identity/Pages/Account/Manage/Disable2fa.cshtml">
+      <publishTime>08/07/2022 20:31:35</publishTime>
+    </File>
+    <File Include="Areas/Identity/Pages/Account/Manage/Disable2fa.cshtml.cs">
+      <publishTime>08/07/2022 20:31:32</publishTime>
+    </File>
+    <File Include="Areas/Identity/Pages/Account/Manage/DownloadPersonalData.cshtml">
+      <publishTime>08/07/2022 20:31:35</publishTime>
+    </File>
+    <File Include="Areas/Identity/Pages/Account/Manage/DownloadPersonalData.cshtml.cs">
+      <publishTime>08/07/2022 20:31:32</publishTime>
+    </File>
+    <File Include="Areas/Identity/Pages/Account/Manage/Email.cshtml">
+      <publishTime>08/07/2022 20:31:35</publishTime>
+    </File>
+    <File Include="Areas/Identity/Pages/Account/Manage/Email.cshtml.cs">
+      <publishTime>08/07/2022 20:31:32</publishTime>
+    </File>
+    <File Include="Areas/Identity/Pages/Account/Manage/EnableAuthenticator.cshtml">
+      <publishTime>08/07/2022 20:31:35</publishTime>
+    </File>
+    <File Include="Areas/Identity/Pages/Account/Manage/EnableAuthenticator.cshtml.cs">
+      <publishTime>08/07/2022 20:31:32</publishTime>
+    </File>
+    <File Include="Areas/Identity/Pages/Account/Manage/ExternalLogins.cshtml">
+      <publishTime>08/07/2022 20:31:35</publishTime>
+    </File>
+    <File Include="Areas/Identity/Pages/Account/Manage/ExternalLogins.cshtml.cs">
+      <publishTime>08/07/2022 20:31:32</publishTime>
+    </File>
+    <File Include="Areas/Identity/Pages/Account/Manage/GenerateRecoveryCodes.cshtml">
+      <publishTime>08/07/2022 20:31:35</publishTime>
+    </File>
+    <File Include="Areas/Identity/Pages/Account/Manage/GenerateRecoveryCodes.cshtml.cs">
+      <publishTime>08/07/2022 20:31:32</publishTime>
+    </File>
+    <File Include="Areas/Identity/Pages/Account/Manage/Index.cshtml">
+      <publishTime>08/07/2022 20:31:35</publishTime>
+    </File>
+    <File Include="Areas/Identity/Pages/Account/Manage/Index.cshtml.cs">
+      <publishTime>08/07/2022 20:49:07</publishTime>
+    </File>
+    <File Include="Areas/Identity/Pages/Account/Manage/ManageNavPages.cs">
+      <publishTime>08/07/2022 20:31:31</publishTime>
+    </File>
+    <File Include="Areas/Identity/Pages/Account/Manage/PersonalData.cshtml">
+      <publishTime>08/07/2022 20:31:35</publishTime>
+    </File>
+    <File Include="Areas/Identity/Pages/Account/Manage/PersonalData.cshtml.cs">
+      <publishTime>08/07/2022 20:31:32</publishTime>
+    </File>
+    <File Include="Areas/Identity/Pages/Account/Manage/ResetAuthenticator.cshtml">
+      <publishTime>08/07/2022 20:31:35</publishTime>
+    </File>
+    <File Include="Areas/Identity/Pages/Account/Manage/ResetAuthenticator.cshtml.cs">
+      <publishTime>08/07/2022 20:31:32</publishTime>
+    </File>
+    <File Include="Areas/Identity/Pages/Account/Manage/SetPassword.cshtml">
+      <publishTime>08/07/2022 20:31:35</publishTime>
+    </File>
+    <File Include="Areas/Identity/Pages/Account/Manage/SetPassword.cshtml.cs">
+      <publishTime>08/07/2022 20:31:32</publishTime>
+    </File>
+    <File Include="Areas/Identity/Pages/Account/Manage/ShowRecoveryCodes.cshtml">
+      <publishTime>08/07/2022 20:31:36</publishTime>
+    </File>
+    <File Include="Areas/Identity/Pages/Account/Manage/ShowRecoveryCodes.cshtml.cs">
+      <publishTime>08/07/2022 20:31:33</publishTime>
+    </File>
+    <File Include="Areas/Identity/Pages/Account/Manage/TwoFactorAuthentication.cshtml">
+      <publishTime>08/07/2022 20:31:36</publishTime>
+    </File>
+    <File Include="Areas/Identity/Pages/Account/Manage/TwoFactorAuthentication.cshtml.cs">
+      <publishTime>08/07/2022 20:31:33</publishTime>
+    </File>
+    <File Include="Areas/Identity/Pages/Account/Manage/_Layout.cshtml">
+      <publishTime>08/07/2022 20:31:34</publishTime>
+    </File>
+    <File Include="Areas/Identity/Pages/Account/Manage/_ManageNav.cshtml">
+      <publishTime>08/07/2022 20:31:31</publishTime>
+    </File>
+    <File Include="Areas/Identity/Pages/Account/Manage/_StatusMessage.cshtml">
+      <publishTime>08/07/2022 20:31:35</publishTime>
+    </File>
+    <File Include="Areas/Identity/Pages/Account/Manage/_ViewImports.cshtml">
+      <publishTime>08/07/2022 20:31:33</publishTime>
+    </File>
+    <File Include="Areas/Identity/Pages/Account/Register.cshtml">
+      <publishTime>08/07/2022 20:31:36</publishTime>
+    </File>
+    <File Include="Areas/Identity/Pages/Account/Register.cshtml.cs">
+      <publishTime>08/07/2022 20:31:33</publishTime>
+    </File>
+    <File Include="Areas/Identity/Pages/Account/RegisterConfirmation.cshtml">
+      <publishTime>08/07/2022 20:31:36</publishTime>
+    </File>
+    <File Include="Areas/Identity/Pages/Account/RegisterConfirmation.cshtml.cs">
+      <publishTime>08/07/2022 20:31:33</publishTime>
+    </File>
+    <File Include="Areas/Identity/Pages/Account/ResendEmailConfirmation.cshtml">
+      <publishTime>08/07/2022 20:31:36</publishTime>
+    </File>
+    <File Include="Areas/Identity/Pages/Account/ResendEmailConfirmation.cshtml.cs">
+      <publishTime>08/07/2022 20:31:33</publishTime>
+    </File>
+    <File Include="Areas/Identity/Pages/Account/ResetPassword.cshtml">
+      <publishTime>08/07/2022 20:31:36</publishTime>
+    </File>
+    <File Include="Areas/Identity/Pages/Account/ResetPassword.cshtml.cs">
+      <publishTime>08/07/2022 20:31:33</publishTime>
+    </File>
+    <File Include="Areas/Identity/Pages/Account/ResetPasswordConfirmation.cshtml">
+      <publishTime>08/07/2022 20:31:36</publishTime>
+    </File>
+    <File Include="Areas/Identity/Pages/Account/ResetPasswordConfirmation.cshtml.cs">
+      <publishTime>08/07/2022 20:31:33</publishTime>
+    </File>
+    <File Include="Areas/Identity/Pages/Account/_StatusMessage.cshtml">
+      <publishTime>08/07/2022 20:31:34</publishTime>
+    </File>
+    <File Include="Areas/Identity/Pages/Account/_ViewImports.cshtml">
+      <publishTime>08/07/2022 20:31:33</publishTime>
+    </File>
+    <File Include="Areas/Identity/Pages/Error.cshtml">
+      <publishTime>08/07/2022 20:31:36</publishTime>
+    </File>
+    <File Include="Areas/Identity/Pages/Error.cshtml.cs">
+      <publishTime>08/07/2022 20:31:33</publishTime>
+    </File>
+    <File Include="Areas/Identity/Pages/_ValidationScriptsPartial.cshtml">
+      <publishTime>08/07/2022 20:31:33</publishTime>
+    </File>
+    <File Include="Areas/Identity/Pages/_ViewImports.cshtml">
+      <publishTime>08/07/2022 20:31:33</publishTime>
+    </File>
+    <File Include="Areas/Identity/Pages/_ViewStart.cshtml">
+      <publishTime>08/07/2022 20:31:31</publishTime>
+    </File>
+    <File Include="Controllers/HomeController.cs">
+      <publishTime>09/13/2022 22:57:33</publishTime>
+    </File>
+    <File Include="Controllers/LecturerController.cs">
+      <publishTime>09/12/2022 04:55:15</publishTime>
+    </File>
+    <File Include="Data/ApplicationDbContext.cs">
+      <publishTime>09/06/2022 01:00:01</publishTime>
+    </File>
+    <File Include="Migrations/20220905233142_du2h3.cs">
+      <publishTime>09/06/2022 01:31:43</publishTime>
+    </File>
+    <File Include="Migrations/20220905233142_du2h3.Designer.cs">
+      <publishTime>09/06/2022 01:31:43</publishTime>
+    </File>
+    <File Include="Migrations/ApplicationDbContextModelSnapshot.cs">
+      <publishTime>09/06/2022 01:31:43</publishTime>
+    </File>
+    <File Include="Models/Accomodation.cs">
+      <publishTime>09/06/2022 01:23:11</publishTime>
+    </File>
+    <File Include="Models/Course.cs">
+      <publishTime>09/06/2022 01:23:17</publishTime>
+    </File>
+    <File Include="Models/ErrorViewModel.cs">
+      <publishTime>08/02/2022 17:12:35</publishTime>
+    </File>
+    <File Include="Models/HeadOfDepartment.cs">
+      <publishTime>09/06/2022 01:23:24</publishTime>
+    </File>
+    <File Include="Models/Lecturer.cs">
+      <publishTime>09/06/2022 01:31:27</publishTime>
+    </File>
+    <File Include="Models/Lecturer_Module.cs">
+      <publishTime>09/06/2022 01:23:31</publishTime>
+    </File>
+    <File Include="Models/Material.cs">
+      <publishTime>09/06/2022 01:24:40</publishTime>
+    </File>
+    <File Include="Models/Module.cs">
+      <publishTime>09/06/2022 01:23:38</publishTime>
+    </File>
+    <File Include="Models/Module_Course.cs">
+      <publishTime>09/06/2022 01:23:43</publishTime>
+    </File>
+    <File Include="Models/Office.cs">
+      <publishTime>09/06/2022 01:23:48</publishTime>
+    </File>
+    <File Include="Models/Sponsor.cs">
+      <publishTime>09/06/2022 01:23:51</publishTime>
+    </File>
+    <File Include="Models/Student.cs">
+      <publishTime>09/06/2022 01:24:55</publishTime>
+    </File>
+    <File Include="Models/Student_Module.cs">
+      <publishTime>09/06/2022 01:24:00</publishTime>
+    </File>
+    <File Include="Models/SubjectCoordinator.cs">
+      <publishTime>09/06/2022 01:24:10</publishTime>
+    </File>
+    <File Include="Models/Submission.cs">
+      <publishTime>09/06/2022 01:24:54</publishTime>
+    </File>
+    <File Include="Models/Submission_Student.cs">
+      <publishTime>09/06/2022 01:24:17</publishTime>
+    </File>
+    <File Include="Pages/_ValidationScriptsPartial.cshtml">
+      <publishTime>08/12/2022 02:07:21</publishTime>
+    </File>
+    <File Include="Views/Home/About.cshtml">
+      <publishTime>05/27/2022 19:57:39</publishTime>
+    </File>
+    <File Include="Views/Home/Index.cshtml">
+      <publishTime>08/07/2022 02:37:54</publishTime>
+    </File>
+    <File Include="Views/Home/IndexNull.cshtml">
+      <publishTime>05/29/2022 18:21:49</publishTime>
+    </File>
+    <File Include="Views/Home/IndexPassword.cshtml">
+      <publishTime>05/29/2022 18:19:21</publishTime>
+    </File>
+    <File Include="Views/Home/IndexUn.cshtml">
+      <publishTime>05/29/2022 18:11:39</publishTime>
+    </File>
+    <File Include="Views/Home/LogIn.cshtml">
+      <publishTime>05/27/2022 21:19:01</publishTime>
+    </File>
+    <File Include="Views/Home/Privacy.cshtml">
+      <publishTime>08/02/2022 17:12:23</publishTime>
+    </File>
+    <File Include="Views/Lecturer/Dashboard.cshtml">
+      <publishTime>08/15/2022 18:35:23</publishTime>
+    </File>
+    <File Include="Views/Lecturer/MatCreate.cshtml">
+      <publishTime>09/05/2022 03:49:52</publishTime>
+    </File>
+    <File Include="Views/Lecturer/MatDelete.cshtml">
+      <publishTime>09/04/2022 01:57:41</publishTime>
+    </File>
+    <File Include="Views/Lecturer/MatEdit.cshtml">
+      <publishTime>09/10/2022 01:25:18</publishTime>
+    </File>
+    <File Include="Views/Lecturer/MatIndex.cshtml">
+      <publishTime>09/05/2022 03:37:56</publishTime>
+    </File>
+    <File Include="Views/Lecturer/Report.cshtml">
+      <publishTime>09/02/2022 22:42:01</publishTime>
+    </File>
+    <File Include="Views/Lecturer/SubCreate.cshtml">
+      <publishTime>09/10/2022 01:10:03</publishTime>
+    </File>
+    <File Include="Views/Lecturer/SubDelete.cshtml">
+      <publishTime>09/10/2022 01:21:45</publishTime>
+    </File>
+    <File Include="Views/Lecturer/SubEdit.cshtml">
+      <publishTime>09/10/2022 01:25:32</publishTime>
+    </File>
+    <File Include="Views/Lecturer/SubIndex.cshtml">
+      <publishTime>09/10/2022 01:03:10</publishTime>
+    </File>
+    <File Include="Views/Lecturer/SubStuGrade.cshtml">
+      <publishTime>09/12/2022 04:57:11</publishTime>
+    </File>
+    <File Include="Views/Lecturer/SubStuIndex.cshtml">
+      <publishTime>09/12/2022 04:51:49</publishTime>
+    </File>
+    <File Include="Views/Shared/Error.cshtml">
+      <publishTime>08/02/2022 17:12:23</publishTime>
+    </File>
+    <File Include="Views/Shared/_Layout.cshtml">
+      <publishTime>09/13/2022 22:56:13</publishTime>
+    </File>
+    <File Include="Views/Shared/_LoginPartial.cshtml">
+      <publishTime>08/02/2022 17:12:23</publishTime>
+    </File>
+    <File Include="Views/Shared/_ValidationScriptsPartial.cshtml">
+      <publishTime>08/02/2022 17:12:23</publishTime>
+    </File>
+    <File Include="Views/_ViewImports.cshtml">
+      <publishTime>08/02/2022 17:12:22</publishTime>
+    </File>
+    <File Include="Views/_ViewStart.cshtml">
+      <publishTime>08/02/2022 17:12:22</publishTime>
+    </File>
+  </ItemGroup>
+</Project>

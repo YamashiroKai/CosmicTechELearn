@@ -13,16 +13,16 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.ModID)
+                @Html.ActionLink("Module", "SubIndex", new { sortOrder = ViewBag.SortMod })
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Week)
+                @Html.ActionLink("Week", "SubIndex", new { sortOrder = ViewBag.SortWeek })
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.StartDate)
+                @Html.ActionLink("Start Date", "SubIndex", new { sortOrder = ViewBag.SortStart})
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.DueDate)
+                @Html.ActionLink("Due Date", "SubIndex", new { sortOrder = ViewBag.SortDue})
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.FileLink)

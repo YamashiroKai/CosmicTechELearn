@@ -1,7 +1,7 @@
 ﻿@model ELearn.Models.Submission
 
 @{
-    ViewData["Title"] = "Add New Submission Slot";
+    ViewData["Title"] = "New Submission Slot";
 }
 
 <h1>Add New Submission Slot</h1>
@@ -13,9 +13,8 @@
         <form asp-action="SubCreate">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                Module Code
-                <input asp-for="ModID" class="form-control" />
-                <span asp-validation-for="ModID" class="text-danger"></span>
+               Module Code
+               <select asp-for="ModID" asp-items="@Model.Modules"></select>
             </div>
             <div class="form-group">
                 <label asp-for="Week" class="control-label"></label>
@@ -44,7 +43,7 @@
             </div>
             <div class="form-group form-check">
                 <label class="form-check-label">
-                    <input class="form-check-input" asp-for="Active" /> @Html.DisplayNameFor(model => model.Active)
+                    <input class="form-check-input" asp-for="Active" value="True" disabled unchecked/> @Html.DisplayNameFor(model => model.Active)
                 </label>
             </div>
             <div class="form-group">
