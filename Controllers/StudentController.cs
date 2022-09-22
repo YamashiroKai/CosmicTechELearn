@@ -12,26 +12,18 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace ELearn.Controllers
 {
-    public class LecturerController : Controller
-    {
+    public class StudentController : Controller
+    {   
         private readonly ApplicationDbContext _db;
 
-        public LecturerController(ApplicationDbContext db)
+        public StudentController(ApplicationDbContext db)
         {
             _db = db;
         }
 
-        private readonly ILogger<HomeController> _logger;
-
         public IActionResult Dashboard()
         {
             return View();
-        }
-
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
-        {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
 
         /// Material
@@ -41,7 +33,7 @@ namespace ELearn.Controllers
             ViewBag.SortWeek = String.IsNullOrEmpty(sortOrder) ? "week_desc" : "";
             ViewBag.SortMod = sortOrder == "mod_asc" ? "mod_desc" : "mod_asc";
             ViewBag.SortApproved = sortOrder == "approved_asc" ? "approved_desc" : "approved_asc";
-            
+
             IEnumerable<Material> objList = _db.Materials;
 
             if (!String.IsNullOrEmpty(searchString))
@@ -335,9 +327,5 @@ namespace ELearn.Controllers
             return RedirectToAction("SubIndex");
         }
 
-        public ActionResult Report()
-        {
-            return View();
-        }
     }
 }
