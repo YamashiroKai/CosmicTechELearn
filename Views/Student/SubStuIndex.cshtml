@@ -1,0 +1,39 @@
+﻿@model IEnumerable<ELearn.Models.Submission_Student>
+
+@{
+    ViewData["Title"] = "Student Submissions";
+}
+
+<a asp-action="SubIndex">Back to Submission slots</a>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.FileLink)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Grade)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) 
+{
+@if (item.SubID == ViewBag.ID)
+{
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.FileLink)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Grade)
+            </td>
+            <td>
+                <a asp-action="SubStuGrade" asp-route-id="@item.ID">Grade Submission</a>
+            </td>
+        </tr>
+}
+}
+    </tbody>
+</table>

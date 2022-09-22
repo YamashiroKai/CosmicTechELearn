@@ -1,0 +1,60 @@
+﻿@model IEnumerable<ELearn.Models.Material>
+
+@{
+    ViewData["Title"] = "Material";
+}
+
+<h1>Study Material</h1>
+
+<p>
+    <a asp-action="MatCreate">Add new material</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.ActionLink("Module", "MatIndex", new { sortOrder = ViewBag.SortMod })
+            </th>
+            <th>
+                @Html.ActionLink("Week", "MatIndex", new { sortOrder = ViewBag.SortWeek })
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FileLink)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Description)
+            </th>
+            <th>
+                @Html.ActionLink("Approved", "MatIndex", new { sortOrder = ViewBag.SortApproved })
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        //if (item.Active == true)
+        {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ModID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Week)
+            </td>
+            <td>
+                <a href=@Html.DisplayFor(modelItem => item.FileLink)>@Html.DisplayFor(modelItem => item.FileLink)</a>
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Active)
+            </td>
+            <td>
+                <a asp-action="MatEdit" asp-route-id="@item.MatID">Edit</a> |
+                <a asp-action="MatDelete" asp-route-id="@item.MatID">Delete</a>
+            </td>
+        </tr>
+        }
+}           
+    </tbody>
+</table>
