@@ -1,5 +1,8 @@
-Remember to update your local database with the migration from the GitHub project
+Remember to update your local database with the migration from the GitHub project.
 
+\\sict-sql.mandela.ac.za\26$            < Server for the database
+\\sict-iis.mandela.ac.za\26$            < File share for the project. Publish your project here.
+sict-iis.mandela.ac.za\26               < Web link for the program.
 
 Use this if you are testing on your local machine
 
