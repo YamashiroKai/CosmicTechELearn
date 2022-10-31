@@ -1,0 +1,46 @@
+﻿@model ELearn.Models.Module
+
+@{
+    ViewData["Title"] = "Viewing Module";
+}
+
+<div>
+    <h4>Module</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.CreditAward)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.CreditAward)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Year)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Year)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Fee)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Fee)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.PeriodMonths)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.PeriodMonths)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="ModuleRegister" asp-route-modid="@ViewBag.modid">Register</a> |
+    <a asp-action="ModuleIndex">Back to List</a>
+</div>

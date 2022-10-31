@@ -1,0 +1,45 @@
+﻿@model IEnumerable<ELearn.Models.Student>
+
+<p>
+    <a asp-action="Register">Submit Details</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AmountDue)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SponsorID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AccomID)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AmountDue)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SponsorID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AccomID)
+            </td>
+            <td>
+                <a asp-action="EditDetails" asp-route-id="@item.StudentID">Edit Details</a> |
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

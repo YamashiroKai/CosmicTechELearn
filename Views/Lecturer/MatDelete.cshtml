@@ -47,6 +47,6 @@
     <form asp-action="MatDelete">
         <input type="hidden" asp-for="MatID" />
         <input type="submit" value="Yes" class="btn btn-danger" /> |
-        <a asp-action="MatIndex">No, Return to List</a>
+        <button type="button" class="btn btn-secondary" onclick="location.href='@Url.Action("MatIndex", "Lecturer")'">No, return to Index</button>
     </form>
 </div>

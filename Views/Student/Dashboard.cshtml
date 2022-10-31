@@ -5,39 +5,65 @@
 
 <body>
     <div class="text-center ">
-    <div class="container" style="text-align:center;">
-        <h1 class="display-4 ">Dashboard</h1>
-        
-        
-        <div class="center" style="background-color: #1B818D; ">    
-            <br>
-            @using (Html.BeginForm("MatIndex", "Student"))
-            {
-                <button style="background-color: #43a0ab; border: none; padding: 5px;
+        <br>
+        <div class="container" style="background-color: #EDF4F8; font-family: 'Century Gothic'; color: #115259">
+            <h1 class="display-4 ">Student</h1>
+        </div>
+        <div class="container" style="text-align:justify; font-size: 12px; ">
+            <img src="~/images/students.png" alt="IMAGES" ALIGN="right" />
+            <div class="left" style="background-color: #1B818D; color:white; padding: 5px">
+                <p>Its recommended to review your details if you are a new user.</p>
+                @using (Html.BeginForm("Index", "Student"))
+                {
+                    <button style="background-color: #43a0ab; border: none; padding: 5px;
                 font-size: 24px; color:white; border-radius: 8px;
                 box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 4px 17px 0 rgba(0,0,0,0.19);
-                ">Manage Study Material</button>
-            }  
-            <br>
-        </div>
-    </div>
-    <br>
-    <div class="container" style="text-align:center;">
-        <div class="center" style="background-color: #1B818D; ">    
-            <br>
-            @using (Html.BeginForm("SubIndex", "Student"))
-            {
-                <button style="background-color: #43a0ab; border: none; padding: 5px;
+                ">
+                        View Registration Details
+                    </button>
+                }
+                <br>
+                @using (Html.BeginForm("CourseIndex", "Student"))
+                {
+                    <button style="background-color: #43a0ab; border: none; padding: 5px;
                 font-size: 24px; color:white; border-radius: 8px;
                 box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 4px 17px 0 rgba(0,0,0,0.19);
-                ">Manage Submissions</button>
-            }  
-            <br>
+                ">
+                        Apply for Course
+                    </button>
+                }
+                <br>
+                @using (Html.BeginForm("RegistedModuleIndex", "Student"))
+                {
+                    <button style="background-color: #43a0ab; border: none; padding: 5px;
+                font-size: 24px; color:white; border-radius: 8px;
+                box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 4px 17px 0 rgba(0,0,0,0.19);
+                ">
+                        View Modules
+                    </button>
+                }
+                <br>
+                @using (Html.BeginForm("SubIndex", "Student"))
+                {
+                    <button style="background-color: #43a0ab; border: none; padding: 5px;
+                font-size: 24px; color:white; border-radius: 8px;
+                box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 4px 17px 0 rgba(0,0,0,0.19);
+                ">
+                        View Submissions
+                    </button>
+                }
+                <br>
+                @using (Html.BeginForm("MatIndex", "Student"))
+                {
+                    <button style="background-color: #43a0ab; border: none; padding: 5px;
+                font-size: 24px; color:white; border-radius: 8px;
+                box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 4px 17px 0 rgba(0,0,0,0.19);
+                ">
+                        View Study Material
+                    </button>
+                }
+                <br><br><br><br><br><br><br><br><br><br><br><br>
+            </div>
         </div>
     </div>
-    <br>
-     
-    </div>
-    <br>
-    <br><br><br><br><br><br><br><br><br><br>
 </body>

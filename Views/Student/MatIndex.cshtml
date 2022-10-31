@@ -1,14 +1,20 @@
 ﻿@model IEnumerable<ELearn.Models.Material>
 
 @{
-    ViewData["Title"] = "Material";
+    ViewData["Title"] = "Study Material";
 }
 
 <h1>Study Material</h1>
 
-<p>
-    <a asp-action="MatCreate">Add new material</a>
-</p>
+<form asp-action="MatIndex" method="get">
+    <div class="form-actions no-color">
+        <p>
+            Find by Module Code: <input type="text" name="SearchString" value="@ViewData["CurrentFilter"]" />
+            <input type="submit" value="Search" class="btn btn-primary" />
+        </p>
+    </div>
+</form>
+
 <table class="table">
     <thead>
         <tr>
@@ -24,14 +30,11 @@
             <th>
                 @Html.DisplayNameFor(model => model.Description)
             </th>
-            <th>
-                @Html.ActionLink("Approved", "MatIndex", new { sortOrder = ViewBag.SortApproved })
-            </th>
         </tr>
     </thead>
     <tbody>
 @foreach (var item in Model) {
-        //if (item.Active == true)
+        if (item.Active == true)
         {
         <tr>
             <td>
@@ -41,17 +44,10 @@
                 @Html.DisplayFor(modelItem => item.Week)
             </td>
             <td>
-                <a href=@Html.DisplayFor(modelItem => item.FileLink)>@Html.DisplayFor(modelItem => item.FileLink)</a>
+               @Html.DisplayFor(modelItem => item.FileLink)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Description)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Active)
-            </td>
-            <td>
-                <a asp-action="MatEdit" asp-route-id="@item.MatID">Edit</a> |
-                <a asp-action="MatDelete" asp-route-id="@item.MatID">Delete</a>
             </td>
         </tr>
         }

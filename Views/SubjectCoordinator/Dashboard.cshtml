@@ -1,8 +1,49 @@
-﻿
-@{
+﻿@{
     ViewData["Title"] = "Dashboard";
 }
 
 <body>
-
+    <div class="text-center ">
+        <br>
+        <div class="container" style="background-color: #EDF4F8; font-family: 'Century Gothic'; color: #115259">
+            <h1 class="display-4 ">Subject Coordinator</h1>
+        </div>
+        <div class="container" style="text-align:justify; font-size: 12px; ">
+            <img src="~/images/subco.png" alt="IMAGES" ALIGN="right" />
+            <div class="left" style="background-color: #1B818D; color:white; padding: 5px">
+                <p>Its recommended to review your details if you are a new user.</p>
+                @using (Html.BeginForm("Index", "SubjectCoordinator"))
+                {
+                    <button style="background-color: #43a0ab; border: none; padding: 5px;
+                font-size: 24px; color:white; border-radius: 8px;
+                box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 4px 17px 0 rgba(0,0,0,0.19);
+                ">
+                        Manage Details
+                    </button>
+                }
+                <br>
+                @using (Html.BeginForm("MatIndex", "SubjectCoordinator"))
+                {
+                    <button style="background-color: #43a0ab; border: none; padding: 5px;
+                font-size: 24px; color:white; border-radius: 8px;
+                box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 4px 17px 0 rgba(0,0,0,0.19);
+                ">
+                        Manage Study Material
+                    </button>
+                }
+                <br>
+                @using (Html.BeginForm("SubIndex", "SubjectCoordinator"))
+                {
+                    <button style="background-color: #43a0ab; border: none; padding: 5px;
+                font-size: 24px; color:white; border-radius: 8px;
+                box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 4px 17px 0 rgba(0,0,0,0.19);
+                ">
+                        Manage Submissions
+                    </button>
+                }
+                <br>
+                <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+            </div>
+        </div>
+    </div>
 </body>

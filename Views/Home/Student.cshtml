@@ -1,0 +1,43 @@
+﻿@{
+    ViewData["Title"] = "Student Portal";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<body>
+    <img class="center-fit" src="~/images/student_portal.jpg" style="z-index:-5;"/>
+    <div class="text-center ">
+        <div class="container" style="text-align:center;">
+            <div class="center" style="background-color: #1B818D; ">
+                <br>
+                @using (Html.BeginForm("Dashboard", "Student"))
+                {
+                    <button style="background-color: #43a0ab; border: none; padding: 5px;
+                font-size: 24px; color:white; border-radius: 8px;
+                box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 4px 17px 0 rgba(0,0,0,0.19);
+                ">
+                        Student Dashboard
+                    </button>
+                }
+                <br>
+            </div>
+        </div>
+        <br>
+        <div class="container" style="text-align:center;">
+            <div class="center" style="background-color: #1B818D; ">
+                <br>
+                @using (Html.BeginForm("Dashboard", "Sponsor"))
+                {
+                    <button style="background-color: #43a0ab; border: none; padding: 5px;
+                font-size: 24px; color:white; border-radius: 8px;
+                box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 4px 17px 0 rgba(0,0,0,0.19);
+                ">
+                        Sponsor Dashboard
+                    </button>
+                }
+                <br>
+            </div>
+            <br>
+            <br><br><br><br><br><br><br>
+        </div>
+    </div>
+</body>

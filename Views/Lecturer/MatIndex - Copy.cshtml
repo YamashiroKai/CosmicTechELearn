@@ -1,0 +1,68 @@
+﻿@model IEnumerable<ELearn.Models.Material>
+
+@{
+    ViewData["Title"] = "Material";
+}
+
+<h1>Study Material</h1>
+
+<form asp-action="MatIndex" method="get">
+    <div class="form-actions no-color">
+        <p>
+            <button type="button" class="btn btn-secondary" onclick="location.href='@Url.Action("Dashboard", "Lecturer")'">Back</button>
+            <button type="button" class="btn btn-primary" onclick="location.href='@Url.Action("MatCreate", "Lecturer")'">Add new material</button>
+            Find by Module Code: <input type="text" name="SearchString" value="@ViewData["CurrentFilter"]" />
+            <input type="submit" value="Search" class="btn btn-secondary" />
+        </p>
+    </div>
+</form>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.ActionLink("Module", "MatIndex", new { sortOrder = ViewBag.SortMod })
+            </th>
+            <th>
+                @Html.ActionLink("Week", "MatIndex", new { sortOrder = ViewBag.SortWeek })
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FileLink)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Description)
+            </th>
+            <th>
+                @Html.ActionLink("Approved", "MatIndex", new { sortOrder = ViewBag.SortApproved })
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ModID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Week)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FileLink)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Active)
+            </td>
+            <td>
+                
+                <a asp-action="MatEdit" asp-route-id="@item.MatID">Edit</a> |
+                <a asp-action="MatDelete" asp-route-id="@item.MatID">Delete</a>
+            </td>
+        </tr>
+        }
+}           
+    </tbody>
+</table>

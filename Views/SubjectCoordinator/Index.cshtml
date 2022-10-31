@@ -1,0 +1,44 @@
+﻿@model IEnumerable<ELearn.Models.SubjectCoordinator>
+
+@{
+    ViewData["Title"] = "Registration Details";
+}
+
+<p>
+    <a asp-action="Register">Register Details</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.OfficeID)
+            </th>
+            <th>
+                Title and Surname
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OfficeID)
+            </td>
+            <td>
+                <a asp-action="EditDetails" asp-route-id="@item.SubjectCoID">Edit Details</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+
+<p>
+    <a asp-action="Dashboard">Back</a>
+</p>

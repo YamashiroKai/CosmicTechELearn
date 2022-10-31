@@ -6,26 +6,37 @@
 
 <h1>Submission Slots</h1>
 
-<p>
-    <a asp-action="SubCreate">Add new slot</a>
-</p>
+<form asp-action="SubIndex" method="get">
+    <div class="form-actions no-color">
+        <p>
+            <button type="button" class="btn btn-secondary" onclick="location.href='@Url.Action("Dashboard", "Lecturer")'">Back</button>
+            <button type="button" class="btn btn-primary" onclick="location.href='@Url.Action("SubCreate", "Lecturer")'">Add new slot</button>
+            Find by Module Code: <input type="text" name="SearchString" value="@ViewBag.Search" />
+            <input type="submit" value="Search" class="btn btn-secondary" />
+        </p>
+    </div>
+</form>
+
 <table class="table">
     <thead>
         <tr>
             <th>
-                @Html.ActionLink("Module", "SubIndex", new { sortOrder = ViewBag.SortMod })
+                @Html.ActionLink("Module", "SubIndex", new { sortOrder = ViewBag.SortMod, SearchString = ViewBag.Search })
             </th>
             <th>
-                @Html.ActionLink("Week", "SubIndex", new { sortOrder = ViewBag.SortWeek })
+                @Html.ActionLink("Week", "SubIndex", new { sortOrder = ViewBag.SortWeek, SearchString = ViewBag.Search })
             </th>
             <th>
-                @Html.ActionLink("Start Date", "SubIndex", new { sortOrder = ViewBag.SortStart})
+                @Html.ActionLink("Start Date", "SubIndex", new { sortOrder = ViewBag.SortStart, SearchString = ViewBag.Search })
             </th>
             <th>
-                @Html.ActionLink("Due Date", "SubIndex", new { sortOrder = ViewBag.SortDue})
+                @Html.ActionLink("Due Date", "SubIndex", new { sortOrder = ViewBag.SortDue, SearchString = ViewBag.Search })
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.FileLink)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TotalScore)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Description)
@@ -37,35 +48,43 @@
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.ModID)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Week)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.StartDate)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DueDate)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.FileLink)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Description)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Active)
-            </td>
-            <td>
-                <a asp-action="SubEdit" asp-route-id="@item.SubID">Edit</a> |
-                <a asp-action="SubDelete" asp-route-id="@item.SubID">Delete</a> |
-                <a asp-action="SubStuIndex" asp-route-id="@item.SubID">View Student Uploads</a>
-            </td>
-        </tr>
-}
+        @foreach (var item in Model)
+        {
+            @if (ViewBag.Search == item.ModID)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ModID)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Week)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.StartDate)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DueDate)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.FileLink)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.TotalScore)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Description)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Active)
+                    </td>
+                    <td>
+                        <a asp-action="SubEdit" asp-route-id="@item.SubID">Edit</a> |
+                        <a asp-action="SubDelete" asp-route-id="@item.SubID">Delete</a> |
+                        <a asp-action="SubStuIndex" asp-route-id="@item.SubID" asp-route-total="@item.TotalScore">View Uploads</a> |
+                        <a asp-action="SubStuIndexReport" asp-route-id="@item.SubID" asp-route-total="@item.TotalScore">Generate Report</a>
+                    </td>
+                </tr>
+            }
+        }
     </tbody>
 </table>

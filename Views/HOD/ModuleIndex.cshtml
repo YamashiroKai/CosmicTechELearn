@@ -1,0 +1,72 @@
+﻿@model IEnumerable<ELearn.Models.Module>
+
+@{
+    ViewData["Title"] = "Modules";
+}
+
+<p>
+    <a asp-action="ModuleCreate">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CreditAward)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Year)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Fee)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PeriodMonths)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LecturerID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Active)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CreditAward)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Year)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Fee)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PeriodMonths)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LecturerID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Active)
+            </td>
+            <td>
+                <a asp-action="ModuleEdit" asp-route-id="@item.ModID">Edit</a> |
+                <a asp-action="ModuleDelete" asp-route-id="@item.ModID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+
+<p>
+    <a asp-action="Dashboard">Back to Dashboard</a>
+</p>

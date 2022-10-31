@@ -1,0 +1,59 @@
+﻿@model IEnumerable<ELearn.Models.Course>
+
+@{
+    ViewData["Title"] = "Courses";
+}
+
+<p>
+    <a asp-action="CourseCreate">Add New Course</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CreditRequired)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SubjectCoID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Active)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CreditRequired)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SubjectCoID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Active)
+            </td>
+            <td>
+                <a asp-action="CourseEdit" asp-route-id="@item.CourseID">Edit</a> |
+                <a asp-action="CourseModIndex" asp-route-id="@item.CourseID">View Modules</a> |
+                <a asp-action="CourseDelete" asp-route-id="@item.CourseID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+
+<a asp-action="Dashboard">Return to Dashboard</a>

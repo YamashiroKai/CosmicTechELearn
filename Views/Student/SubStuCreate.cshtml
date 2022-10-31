@@ -1,0 +1,40 @@
+﻿@model ELearn.Models.Submission_Student
+
+@{
+    ViewData["Title"] = "Submit Solution";
+}
+
+<h4>Submit Solution</h4>
+<hr />
+<div class="row">
+    <B>Note:</B><br />
+    You will not be able to edit or delete your submission once it has been uploaded.
+    <div class="col-md-4">
+        <form asp-action="SubStuCreate">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="SubID" value=@ViewBag.sub_id/>
+            <input type="hidden" asp-for="Grade" value=0/>
+            <div class="form-group">
+                <b>Student ID -</b> This can be found in your registration details on your dashboard.
+                <input asp-for="StudentID" class="form-control" />
+                <span asp-validation-for="StudentID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <b>File Link -</b> Your file must be hosted on your your institution's approved file hosting services.
+                <input asp-for="FileLink" class="form-control" />
+                <span asp-validation-for="FileLink" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Add Submission" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="SubIndex">Back to Index</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

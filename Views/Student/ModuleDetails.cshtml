@@ -1,0 +1,39 @@
+﻿@model ELearn.Models.Student_Module
+
+@{
+    ViewData["Title"] = "Viewing Module";
+}
+
+<div>
+    <h4>Registered Module</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.StudentID)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.StudentID)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.ModID)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.ModID)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Grade)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Grade)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Completed)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Completed)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="RegistedModuleIndex">Back to List</a>
+</div>

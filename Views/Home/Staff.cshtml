@@ -1,0 +1,59 @@
+﻿@{
+    ViewData["Title"] = "Staff Portal";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<body>
+        <img class="center-fit" src="~/images/staff.png" />
+                    <div class="text-center ">
+        <div class="container" style="text-align:center;">
+            <div class="center" style="background-color: #1B818D; ">
+                <br>
+                @using (Html.BeginForm("Dashboard", "HOD"))
+                {
+                    <button style="background-color: #43a0ab; border: none; padding: 5px;
+                font-size: 24px; color:white; border-radius: 8px;
+                box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 4px 17px 0 rgba(0,0,0,0.19);
+                ">
+                        Heads of Departments
+                    </button>
+                }
+                <br>
+            </div>
+        </div>
+        <br>
+        <div class="container" style="text-align:center;">
+            <div class="center" style="background-color: #1B818D; ">
+                <br>
+                @using (Html.BeginForm("Dashboard", "SubjectCoordinator"))
+                {
+                    <button style="background-color: #43a0ab; border: none; padding: 5px;
+                font-size: 24px; color:white; border-radius: 8px;
+                box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 4px 17px 0 rgba(0,0,0,0.19);
+                ">
+                        Subject Coordinators
+                    </button>
+                }
+                <br>
+            </div>
+        </div>
+        <br>
+        <div class="container" style="text-align:center;">
+            <div class="center" style="background-color: #1B818D; ">
+                <br>
+                @using (Html.BeginForm("Dashboard", "Lecturer"))
+                {
+                    <button style="background-color: #43a0ab; border: none; padding: 5px;
+                font-size: 24px; color:white; border-radius: 8px;
+                box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 4px 17px 0 rgba(0,0,0,0.19);
+                ">
+                        Lecturers & Assistants
+                    </button>
+                }
+                <br>
+            </div>
+            <br>
+            <br><br><br><br><br><br><br>
+        </div>
+    </div>
+</body>

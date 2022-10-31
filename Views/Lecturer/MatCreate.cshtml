@@ -10,8 +10,15 @@
     <div class="col-md-4">
         <form asp-action="MatCreate">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Active" />
+            <br/>
+            <p>
+                Add a link to content for your students to study. These can either be linked to your organization's file system or
+                another external link.<br/>
+                New material will need to be approved by your subject coordinator before it will become visible.
+            </p>
             <div class="form-group">
-               Module Code
+               Module
                <select asp-for="ModID" asp-items="@Model.Modules"></select>
             </div>
             <div class="form-group">
@@ -29,20 +36,12 @@
                 <input asp-for="Description" class="form-control" />
                 <span asp-validation-for="Description" class="text-danger"></span>
             </div>
-            <div class="form-group form-check">
-                <label class="form-check-label">
-                    <input class="form-check-input" asp-for="Active" value="True" disabled unchecked/> @Html.DisplayNameFor(model => model.Active)
-                </label>
-            </div>
             <div class="form-group">
                 <input type="submit" value="Add" class="btn btn-primary" />
+                <button type="button" class="btn btn-secondary" onclick="location.href='@Url.Action("MatIndex", "Lecturer")'">Back</button>
             </div>
         </form>
     </div>
-</div>
-
-<div>
-    <a asp-action="MatIndex">Back to List</a>
 </div>
 
 @section Scripts {

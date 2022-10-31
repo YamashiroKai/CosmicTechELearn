@@ -1,39 +1,77 @@
 ﻿@model IEnumerable<ELearn.Models.Submission_Student>
 
-@{
-    ViewData["Title"] = "Student Submissions";
-}
+@{ViewData["Title"] = "Student Submissions";}
 
-<a asp-action="SubIndex">Back to Submission slots</a>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.FileLink)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Grade)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) 
-{
-@if (item.SubID == ViewBag.ID)
-{
+<br />
+<button type="button" class="btn btn-primary" onclick="location.href='@Url.Action("SubIndex", "Lecturer")'">Back</button>
+<br />
+<div id="details">
+    <table class="table">
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.FileLink)
+                <b>Maximum Mark:</b> @ViewBag.Total
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Grade)
+                <b>Average Mark:</b> @ViewBag.AverageMark
             </td>
             <td>
-                <a asp-action="SubStuGrade" asp-route-id="@item.ID">Grade Submission</a>
+                <b>Average Percentage:</b> @ViewBag.AveragePercentage
             </td>
         </tr>
-}
-}
-    </tbody>
-</table>
+        <tr>
+            <td>
+                <b>Highest:</b> @ViewBag.Highest
+            </td>
+            <td>
+                <b>Lowest:</b> @ViewBag.Lowest
+            </td>
+            <td>
+                <b>Submissions:</b> @ViewBag.Entries
+            </td>
+        </tr>
+    </table>
+
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    <p>User ID</p>
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.FileLink)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Grade)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+
+            @foreach (var item in Model)
+            {
+                @if (item.SubID == ViewBag.ID)
+                {
+                    <tr style="background-color:#FFFFFF">
+                        <td>
+                            @Html.DisplayFor(modelItem => item.StudentID)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.FileLink)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Grade)
+                        </td>
+                        <td>
+                            <a asp-action="SubStuDelete" asp-route-id="@item.SubStuID">Disqualify</a> | 
+                            <a asp-action="SubStuGrade" asp-route-id="@item.SubStuID">Grade Submission</a>
+                        </td>
+                    </tr>
+                }
+            }
+
+        </tbody>
+    </table>
+
+</div>

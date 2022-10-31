@@ -1,14 +1,20 @@
 ﻿@model IEnumerable<ELearn.Models.Submission>
 
 @{
-    ViewData["Title"] = "Submission Slots";
+    ViewData["Title"] = "Submissions";
 }
 
-<h1>Submission Slots</h1>
+<h1>Submissions</h1>
 
-<p>
-    <a asp-action="SubCreate">Add new slot</a>
-</p>
+<form asp-action="SubIndex" method="get">
+    <div class="form-actions no-color">
+        <p>
+            Find by Module Code: <input type="text" name="SearchString" value="@ViewData["CurrentFilter"]" />
+            <input type="submit" value="Search" class="btn btn-primary" />
+        </p>
+    </div>
+</form>
+
 <table class="table">
     <thead>
         <tr>
@@ -28,16 +34,19 @@
                 @Html.DisplayNameFor(model => model.FileLink)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Description)
+                @Html.DisplayNameFor(model => model.TotalScore)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Active)
+                @Html.DisplayNameFor(model => model.Description)
             </th>
             <th></th>
         </tr>
     </thead>
     <tbody>
 @foreach (var item in Model) {
+        if (item.Active == true)
+        {
+    
         <tr>
             <td>
                 @Html.DisplayFor(modelItem => item.ModID)
@@ -55,17 +64,16 @@
                 @Html.DisplayFor(modelItem => item.FileLink)
             </td>
             <td>
+                @Html.DisplayFor(modelItem => item.TotalScore)
+            </td>
+            <td>
                 @Html.DisplayFor(modelItem => item.Description)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Active)
-            </td>
-            <td>
-                <a asp-action="SubEdit" asp-route-id="@item.SubID">Edit</a> |
-                <a asp-action="SubDelete" asp-route-id="@item.SubID">Delete</a> |
-                <a asp-action="SubStuIndex" asp-route-id="@item.SubID">View Student Uploads</a>
+                <a asp-action="SubStuCreate" asp-route-id="@item.SubID">Upload Solution</a>
             </td>
         </tr>
+        }      
 }
     </tbody>
 </table>

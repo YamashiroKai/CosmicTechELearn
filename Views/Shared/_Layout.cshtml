@@ -1,6 +1,6 @@
 ﻿<!DOCTYPE html>
 <style>
-body{}
+body{ }  
 header{background-color: #1B818D}
 a:link {
   color: slategrey;
@@ -70,6 +70,12 @@ img{
                         <li class="nav-item">
                             <a class="nav-link text-white" asp-area="" asp-controller="Home" asp-action="About">About</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white" asp-area="" asp-controller="Home" asp-action="Staff">Staff Portal</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white" asp-area="" asp-controller="Home" asp-action="Student">Student Portal</a>
+                        </li>
                     </ul>
                     <partial name="_LoginPartial" />
                 </div>
@@ -77,6 +83,7 @@ img{
         </nav>
     </header>
     <div class="container" style="background-color: #A9D9BF;">
+        
         <main role="main" class="pb-3">
             @RenderBody()
         </main>

@@ -48,6 +48,6 @@
     <form asp-action="SubDelete">
         <input type="hidden" asp-for="SubID" />
         <input type="submit" value="Delete" class="btn btn-danger" /> |
-        <a asp-action="SubIndex">Back to List</a>
+        <button type="button" class="btn btn-secondary" onclick="location.href='@Url.Action("SubIndex", "Lecturer")'">Back</button>
     </form>
 </div>
