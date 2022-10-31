@@ -20,13 +20,15 @@ namespace ELearn.Models
         [Required(ErrorMessage = "Module Code cannot be empty.")]
         [DisplayName("Module Code")]
         [ForeignKey("Modules")]
-        public string ModID { get; set; }
+        public int ModID { get; set; }
 
         [NotMapped]
         public List<SelectListItem> Modules { set; get; }
 
         public int Week { get; set; }
 
+        [Range(5, 500, ErrorMessage = "Maximum score must be 5-500.")]
+        [DisplayName("Maximum Score")]
         public int TotalScore { get; set; }
 
         [DataType(DataType.Date)]
@@ -40,6 +42,7 @@ namespace ELearn.Models
         public DateTime DueDate { get; set; }
 
         //Link to material/instructions for assignment, homework, etc
+        [Url]
         [DisplayName("File Link")]
         public string FileLink { get; set; }
 

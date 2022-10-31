@@ -4,14 +4,16 @@ using ELearn.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace ELearn.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20221018192839_e")]
+    partial class e
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -149,9 +151,6 @@ namespace ELearn.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("SubjectCoID")
-                        .HasColumnType("int");
-
                     b.HasKey("CourseID");
 
                     b.ToTable("Courses");
@@ -163,8 +162,7 @@ namespace ELearn.Migrations
                             Active = true,
                             CreditRequired = 300,
                             Description = "Applied physics of the meta-scape.",
-                            Name = "Dip : Metaphysics",
-                            SubjectCoID = 0
+                            Name = "Dip : Metaphysics"
                         },
                         new
                         {
@@ -172,8 +170,7 @@ namespace ELearn.Migrations
                             Active = true,
                             CreditRequired = 1200,
                             Description = "Study of extra-planar construction.",
-                            Name = "Dip : Astro-Engineering",
-                            SubjectCoID = 0
+                            Name = "Dip : Astro-Engineering"
                         });
                 });
 
@@ -644,7 +641,7 @@ namespace ELearn.Migrations
                     b.Property<double>("Grade")
                         .HasColumnType("float");
 
-                    b.Property<string>("StudentID")
+                    b.Property<string>("Id")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("SubID")

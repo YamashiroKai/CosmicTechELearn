@@ -9,6 +9,8 @@ using Microsoft.Extensions.Logging;
 using ELearn.Data;
 using ELearn.Models;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using System.Security.Claims;
+using Microsoft.AspNetCore.Authorization;
 
 namespace ELearn.Controllers
 {
@@ -21,23 +23,105 @@ namespace ELearn.Controllers
             _db = db;
         }
 
+        [Authorize(Roles = "SuperAdmin, Student")]
         public IActionResult Dashboard()
         {
             return View();
         }
 
+        /// Register
+
+        [Authorize(Roles = "SuperAdmin, Student")]
+        public ActionResult Index()
+        {
+            ViewBag.own_id = this.User.FindFirstValue(ClaimTypes.NameIdentifier);
+
+            IEnumerable<Student> objList = _db.Students;
+
+            if (!String.IsNullOrEmpty(ViewBag.own_id))
+                objList = objList.Where(s => s.Id.Contains(ViewBag.own_id));
+
+            return View(objList);
+        }
+
+        [Authorize(Roles = "SuperAdmin, Student")]
+        public ActionResult Register()
+        {
+            var obj = new Student();
+            ViewBag.own_id = this.User.FindFirstValue(ClaimTypes.NameIdentifier);
+
+            obj.Accomodations = _db.Accomodations
+                                  .Select(a => new SelectListItem()
+                                  {
+                                      Value = a.AccomID.ToString(),
+                                      Text = a.Address + a.BuildingName
+                                  })
+                                  .ToList();
+
+            return View(obj);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Register(Student obj)
+        {
+            _db.Students.Add(obj);
+            _db.SaveChanges();
+            return RedirectToAction("Dashboard");
+        }
+
+        [Authorize(Roles = "SuperAdmin, Student")]
+        public ActionResult EditDetails(int? id)
+        {
+            if (id == null || id == 0)
+            {
+                return NotFound();
+            }
+
+            var obj = _db.Students.Find(id);
+            if (obj == null)
+            {
+                return NotFound();
+            }
+
+            ViewBag.own_id = this.User.FindFirstValue(ClaimTypes.NameIdentifier);
+
+            obj.Accomodations = _db.Accomodations
+                                  .Select(a => new SelectListItem()
+                                  {
+                                      Value = a.AccomID.ToString(),
+                                      Text = a.Address + a.BuildingName
+                                  })
+                                  .ToList();
+
+            return View(obj);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult EditDetails(Student obj)
+        {
+            _db.Students.Update(obj);
+            _db.SaveChanges();
+            return RedirectToAction("Dashboard");
+        }
+
         /// Material
 
+        [Authorize(Roles = "SuperAdmin, Student")]
         public ActionResult MatIndex(string sortOrder, string searchString)
         {
             ViewBag.SortWeek = String.IsNullOrEmpty(sortOrder) ? "week_desc" : "";
             ViewBag.SortMod = sortOrder == "mod_asc" ? "mod_desc" : "mod_asc";
             ViewBag.SortApproved = sortOrder == "approved_asc" ? "approved_desc" : "approved_asc";
+            ViewData["CurrentFilter"] = searchString;
 
             IEnumerable<Material> objList = _db.Materials;
 
             if (!String.IsNullOrEmpty(searchString))
-                objList = objList.Where(s => s.Description.Contains(searchString));
+                objList = objList.Where(s => s.ModID.Equals(searchString));
+
+            objList = objList.Where(s => s.Active.Equals(true));
 
             switch (sortOrder)
             {
@@ -63,115 +147,23 @@ namespace ELearn.Controllers
             return View(objList);
         }
 
-        public ActionResult MatDetails(int id)
-        {
-            return View();
-        }
-
-        public ActionResult MatCreate()
-        {
-            var obj = new Material();
-            obj.Modules = _db.Modules
-                                  .Select(a => new SelectListItem()
-                                  {
-                                      Value = a.ModID.ToString(),
-                                      Text = a.Name
-                                  })
-                                  .ToList();
-
-            return View(obj);
-        }
-
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult MatCreate(Material obj)
-        {
-            if (ModelState.IsValid)
-            {
-                _db.Materials.Add(obj);
-                _db.SaveChanges();
-                return RedirectToAction("MatIndex");
-            }
-            return View(obj);
-        }
-
-        public ActionResult MatEdit(int? id)
-        {
-            if (id == null || id == 0)
-            {
-                return NotFound();
-            }
-
-            var obj = _db.Materials.Find(id);
-            if (obj == null)
-            {
-                return NotFound();
-            }
-            obj.Modules = _db.Modules
-                                  .Select(a => new SelectListItem()
-                                  {
-                                      Value = a.ModID.ToString(),
-                                      Text = a.Name
-                                  })
-                                  .ToList();
-
-            return View(obj);
-        }
-
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult MatEdit(Material obj)
-        {
-            _db.Materials.Update(obj);
-            _db.SaveChanges();
-            return RedirectToAction("MatIndex");
-        }
-
-        public ActionResult MatDelete(int? id)
-        {
-            if (id == null || id == 0)
-            {
-                return NotFound();
-            }
-
-            var obj = _db.Materials.Find(id);
-            if (obj == null)
-            {
-                return NotFound();
-            }
-            obj.Modules = _db.Modules
-                                  .Select(a => new SelectListItem()
-                                  {
-                                      Value = a.ModID.ToString(),
-                                      Text = a.Name
-                                  })
-                                  .ToList();
-
-            return View(obj);
-        }
-
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult MatDelete(Material obj)
-        {
-            _db.Materials.Remove(obj);
-            _db.SaveChanges();
-            return RedirectToAction("MatIndex");
-        }
-
         /// Submissions
 
+        [Authorize(Roles = "SuperAdmin, Student")]
         public ActionResult SubIndex(string sortOrder, string searchString)
         {
             ViewBag.SortWeek = String.IsNullOrEmpty(sortOrder) ? "week_desc" : "";
             ViewBag.SortMod = sortOrder == "mod_asc" ? "mod_desc" : "mod_asc";
             ViewBag.SortDue = sortOrder == "due_asc" ? "due_desc" : "due_asc";
             ViewBag.SortStart = sortOrder == "start_asc" ? "start_desc" : "start_asc";
+            ViewData["CurrentFilter"] = searchString;
 
             IEnumerable<Submission> objList = _db.Submissions;
 
             if (!String.IsNullOrEmpty(searchString))
-                objList = objList.Where(s => s.Description.Contains(searchString));
+                objList = objList.Where(s => s.ModID.Equals(searchString));
+
+            objList = objList.Where(s => s.Active.Equals(true));
 
             switch (sortOrder)
             {
@@ -204,95 +196,13 @@ namespace ELearn.Controllers
             return View(objList);
         }
 
+        [Authorize(Roles = "SuperAdmin, Student")]
         public ActionResult SubDetails(int id)
         {
             return View();
         }
 
-        public ActionResult SubCreate()
-        {
-            var obj = new Submission();
-            obj.Modules = _db.Modules
-                                  .Select(a => new SelectListItem()
-                                  {
-                                      Value = a.ModID.ToString(),
-                                      Text = a.Name
-                                  })
-                                  .ToList();
-
-            return View(obj);
-        }
-
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult SubCreate(Submission obj)
-        {
-            if (ModelState.IsValid)
-            {
-                _db.Submissions.Add(obj);
-                _db.SaveChanges();
-                return RedirectToAction("SubIndex");
-            }
-            return View(obj);
-        }
-
-        public ActionResult SubEdit(int? id)
-        {
-            if (id == null || id == 0)
-            {
-                return NotFound();
-            }
-
-            var obj = _db.Submissions.Find(id);
-            if (obj == null)
-            {
-                return NotFound();
-            }
-            obj.Modules = _db.Modules
-                                  .Select(a => new SelectListItem()
-                                  {
-                                      Value = a.ModID.ToString(),
-                                      Text = a.Name
-                                  })
-                                  .ToList();
-
-            return View(obj);
-        }
-
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult SubEdit(Submission obj)
-        {
-            _db.Submissions.Update(obj);
-            _db.SaveChanges();
-            return RedirectToAction("SubIndex");
-        }
-
-        public ActionResult SubDelete(int? id)
-        {
-            if (id == null || id == 0)
-            {
-                return NotFound();
-            }
-
-            var obj = _db.Submissions.Find(id);
-            if (obj == null)
-            {
-                return NotFound();
-            }
-
-            return View(obj);
-        }
-
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult SubDelete(Submission obj)
-        {
-            _db.Submissions.Remove(obj);
-            _db.SaveChanges();
-            return RedirectToAction("SubIndex");
-        }
-
+        [Authorize(Roles = "SuperAdmin, Student")]
         public ActionResult SubStuIndex(int? id)
         {
             ViewBag.ID = id;
@@ -301,16 +211,14 @@ namespace ELearn.Controllers
             return View(objList);
         }
 
-        public ActionResult SubStuGrade(int? id)
+        [Authorize(Roles = "SuperAdmin, Student")]
+        public ActionResult SubStuCreate(int? id)
         {
+            var obj = new Submission_Student();
+            ViewBag.sub_id = id;
+            ViewBag.stud_id = this.User.FindFirstValue(ClaimTypes.NameIdentifier);
 
             if (id == null || id == 0)
-            {
-                return NotFound();
-            }
-
-            var obj = _db.Submissions_Students.Find(id);
-            if (obj == null)
             {
                 return NotFound();
             }
@@ -320,12 +228,113 @@ namespace ELearn.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult SubStuGrade(Submission_Student obj)
+        public ActionResult SubStuCreate(Submission_Student obj)
         {
-            _db.Submissions_Students.Update(obj);
-            _db.SaveChanges();
-            return RedirectToAction("SubIndex");
+                _db.Submissions_Students.Add(obj);
+                _db.SaveChanges();
+                return RedirectToAction("SubIndex");
         }
 
+        // Courses
+
+        //ViewBag.own_id = this.User.FindFirstValue(ClaimTypes.NameIdentifier);
+
+        public ActionResult CourseIndex()
+        {
+            IEnumerable<Course> objList = _db.Courses;
+
+            return View(objList);
+        }
+
+        [Authorize(Roles = "SuperAdmin, Student")]
+        public ActionResult CourseApply(int? id)
+        {
+            var obj = new Student_Course();
+            ViewBag.id = id;
+
+            if (id == null || id == 0)
+            {
+                return NotFound();
+            }
+
+            return View(obj);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult CourseApply(Student_Course obj)
+        {
+            _db.Students_Courses.Add(obj);
+            _db.SaveChanges();
+            return RedirectToAction("Dashboard");
+        }
+
+        // Modules
+
+        [Authorize(Roles = "SuperAdmin, Student")]
+        public ActionResult ModuleIndex(string searchString)
+        {
+            ViewData["CurrentFilter"] = searchString;
+            IEnumerable<Module_Course> objList = _db.Modules_Courses;
+
+            if (!String.IsNullOrEmpty(searchString))
+                objList = objList.Where(s => s.CourseID.Equals(searchString));
+
+            return View(objList);
+        }
+
+        [Authorize(Roles = "SuperAdmin, Student")]
+        public ActionResult ModuleView(int? indexid, int modid)
+        {
+            var obj = _db.Modules.Find(modid);
+            ViewBag.modid = modid;
+
+            return View(obj);
+        }
+
+        [Authorize(Roles = "SuperAdmin, Student")]
+        public ActionResult ModuleRegister(int? modid)
+        {
+            var obj = new Student_Module();
+            ViewBag.modid = modid;
+
+            if (modid == null || modid == 0)
+            {
+                return NotFound();
+            }
+
+            return View(obj);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult ModuleRegister(Student_Module obj)
+        {
+            //if (ModelState.IsValid){
+                _db.Students_Modules.Add(obj);
+                _db.SaveChanges();
+            //}
+            return RedirectToAction("Dashboard");
+        }
+
+        [Authorize(Roles = "SuperAdmin, Student")]
+        public ActionResult RegistedModuleIndex(string searchString)
+        {
+            ViewData["CurrentFilter"] = searchString;
+            IEnumerable<Student_Module> objList = _db.Students_Modules;
+
+            if (!String.IsNullOrEmpty(searchString))
+                objList = objList.Where(s => s.StudentID.Equals(searchString));
+
+            return View(objList);
+        }
+
+        [Authorize(Roles = "SuperAdmin, Student")]
+        public ActionResult ModuleDetails(int? id)
+        {
+            var obj = _db.Students_Modules.Find(id);
+
+            return View(obj);
+        }
     }
 }

@@ -3,6 +3,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.EntityFrameworkCore;
 
 namespace ELearn.Models
 {
@@ -17,5 +18,8 @@ namespace ELearn.Models
 
         [Required(ErrorMessage = "Address cannot be empty.")]
         public string Address { get; set; }
+
+        
+
     }
 }

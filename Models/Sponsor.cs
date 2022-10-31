@@ -15,5 +15,13 @@ namespace ELearn.Models
 
         [ForeignKey("AspNetUsers")]
         public string Id { get; set; }
+
+        [Required(ErrorMessage = "Title cannot be empty.")]
+        [DisplayName("Title and name, eg: Ms Swanepoel.")]
+        public string Title { get; set; }
+
+        //public string FirstName { get; set; }
+
+        //public string Surname { get; set; }
     }
 }

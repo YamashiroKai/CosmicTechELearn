@@ -30,7 +30,6 @@ namespace ELearn.Models
         [DisplayName("Period in Months")]
         public int PeriodMonths { get; set; }
 
-        [Required(ErrorMessage = "Lecturer ID cannot be empty.")]
         [DisplayName("Lecturer ID")]
         [ForeignKey("Lecturers")]
         public int LecturerID { get; set; }

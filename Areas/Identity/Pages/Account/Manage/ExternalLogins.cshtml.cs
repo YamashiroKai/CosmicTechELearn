@@ -11,12 +11,12 @@ namespace ELearn.Areas.Identity.Pages.Account.Manage
 {
     public class ExternalLoginsModel : PageModel
     {
-        private readonly UserManager<IdentityUser> _userManager;
-        private readonly SignInManager<IdentityUser> _signInManager;
+        private readonly UserManager<Models.ApplicationUser> _userManager;
+        private readonly SignInManager<Models.ApplicationUser> _signInManager;
 
         public ExternalLoginsModel(
-            UserManager<IdentityUser> userManager,
-            SignInManager<IdentityUser> signInManager)
+            UserManager<Models.ApplicationUser> userManager,
+            SignInManager<Models.ApplicationUser> signInManager)
         {
             _userManager = userManager;
             _signInManager = signInManager;

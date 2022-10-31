@@ -14,26 +14,13 @@ namespace ELearn.Models
         [Key]
         public int StudentID { get; set; }
 
+        [DisplayName("User ID")]
         [ForeignKey("AspNetUsers")]
         public string Id { get; set; }
 
-        [Required(ErrorMessage = "Name cannot be empty.")]
-        public string Name { get; set; }
-
-        [Required(ErrorMessage = "Surname cannot be empty.")]
-        public string Surname { get; set; }
-
-        [Required(ErrorMessage = "Home address cannot be empty.")]
-        public string Address { get; set; }
-
-        [DataType(DataType.Date)]
-        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}")]
-        public DateTime JoinDate { get; set; }
-
         [DisplayName("Fees Due")]
-        public int AmountDue { get; set; }
+        public float AmountDue { get; set; }
 
-        [Required(ErrorMessage = "Sponsor ID cannot be empty.")]
         [DisplayName("Sponsor ID")]
         [ForeignKey("Sponsors")]
         public int SponsorID { get; set; }
@@ -44,6 +31,10 @@ namespace ELearn.Models
         [DisplayName("Accomodation ID")]
         [ForeignKey("Accomodations")]
         public int AccomID { get; set; }
+
+        [Required(ErrorMessage = "Title cannot be empty.")]
+        [DisplayName("Title and surname, eg: Mr De Burg.")]
+        public string Title { get; set; }
 
         [NotMapped]
         public List<SelectListItem> Accomodations { set; get; }

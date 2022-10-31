@@ -23,6 +23,13 @@ namespace ELearn.Models
         [Required(ErrorMessage = "Required credit cannot be empty.")]
         public int CreditRequired { get; set; }
 
+        [DisplayName("Subject Coordinator")]
+        [ForeignKey("SubjectCoordinators")]
+        public int SubjectCoID { get; set; }
+
+        [NotMapped]
+        public List<SelectListItem> SubjectCoordinators { set; get; }
+
         public bool Active { get; set; }
     }
 }

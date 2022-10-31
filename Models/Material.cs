@@ -18,7 +18,7 @@ namespace ELearn.Models
         [Required(ErrorMessage = "Module ID cannot be empty.")]
         [DisplayName("Module ID")]
         [ForeignKey("Modules")]
-        public string ModID { get; set; }
+        public int ModID { get; set; }
 
         [NotMapped]
         public List<SelectListItem> Modules { set; get; }
@@ -26,6 +26,7 @@ namespace ELearn.Models
         public int Week { get; set; }
 
         [Required(ErrorMessage = "File link cannot be empty.")]
+        [Url]
         [DisplayName("File Link")]
         public string FileLink { get; set; }
 

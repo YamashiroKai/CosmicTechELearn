@@ -19,22 +19,16 @@ namespace ELearn.Models
         [ForeignKey("Offices")]
         public int OfficeID { get; set; }
 
+        [Required(ErrorMessage = "Title cannot be empty.")]
+        [DisplayName("Title and name, eg: Prof. Swanepoel.")]
+        public string Title { get; set; }
+
         [NotMapped]
         public List<SelectListItem> Offices { set; get; }
+
+        [NotMapped]
+        public List<SelectListItem> Lecturer_Modules { set; get; }
 
         public bool Active { get; set; }
     }
 }
-
-//[Required(ErrorMessage = "Name cannot be empty.")]
-//public string Name { get; set; }
-
-//[Required(ErrorMessage = "Surname cannot be empty.")]
-//public string Surname { get; set; }
-
-//[Required(ErrorMessage = "Home address cannot be empty.")]
-//public string Address { get; set; }
-
-//[DataType(DataType.Date)]
-//[DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}")]
-//public DateTime JoinDate { get; set; }

@@ -21,6 +21,10 @@ namespace ELearn.Models
         [ForeignKey("Offices")]
         public int OfficeID { get; set; }
 
+        [Required(ErrorMessage = "Title cannot be empty.")]
+        [DisplayName("Title and name, eg: Prof. Swanepoel.")]
+        public string Title { get; set; }
+
         [NotMapped]
         public List<SelectListItem> Offices { set; get; }
 
