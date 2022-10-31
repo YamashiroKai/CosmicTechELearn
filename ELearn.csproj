@@ -17,6 +17,15 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Content Remove="wwwroot\images\lecturer.pdn" />
+    <Content Remove="wwwroot\images\splash.pdn" />
+    <Content Remove="wwwroot\images\staff.pdn" />
+    <Content Remove="wwwroot\images\students.pdn" />
+    <Content Remove="wwwroot\images\student_portal.pdn" />
+    <Content Remove="wwwroot\images\subco.pdn" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="bootstrap" Version="5.1.3" />
     <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="5.0.0" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="5.0.17" />
@@ -34,6 +43,5 @@
     <Folder Include="Data\Migrations\" />
     <Folder Include="logs\stdout\" />
     <Folder Include="Migrations\" />
-	<Folder Include="Views\" />
   </ItemGroup>
 </Project>

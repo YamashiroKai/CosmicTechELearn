@@ -11,4 +11,4 @@ Use this if you are testing on your local machine
 
 Use this if you are running off the NMU server
 
-"DefaultConnection": "Server=sict-sql.mandela.ac.za;User Id=GRP26;Password=grp26-soit2022;Database=GRP26-CosmicTechDB;Trusted_Connection=false"
+"DefaultConnection": "Server=sict-sql.mandela.ac.za;User Id=GRP26;Password=grp26-soit2022;Database=GRP26-CosmicTechDB;Trusted_Connection=false;MultipleActiveResultSets=true"
