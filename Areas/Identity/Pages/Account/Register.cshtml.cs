@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Text.Encodings.Web;
 using System.Threading.Tasks;
+using ELearn.Data;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
@@ -19,14 +20,14 @@ namespace ELearn.Areas.Identity.Pages.Account
     [AllowAnonymous]
     public class RegisterModel : PageModel
     {
-        private readonly SignInManager<IdentityUser> _signInManager;
-        private readonly UserManager<IdentityUser> _userManager;
+        private readonly SignInManager<Models.ApplicationUser> _signInManager;
+        private readonly UserManager<Models.ApplicationUser> _userManager;
         private readonly ILogger<RegisterModel> _logger;
         private readonly IEmailSender _emailSender;
 
         public RegisterModel(
-            UserManager<IdentityUser> userManager,
-            SignInManager<IdentityUser> signInManager,
+            UserManager<Models.ApplicationUser> userManager,
+            SignInManager<Models.ApplicationUser> signInManager,
             ILogger<RegisterModel> logger,
             IEmailSender emailSender)
         {
@@ -60,6 +61,26 @@ namespace ELearn.Areas.Identity.Pages.Account
             [Display(Name = "Confirm password")]
             [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
             public string ConfirmPassword { get; set; }
+
+            [Required]
+            [Display(Name = "First Name")]
+            public string FirstName { get; set; }
+
+            [Required]
+            [Display(Name = "Last Name")]
+            public string LastName { get; set; }
+
+            [Required]
+            [Display(Name = "Phone Number")]
+            public string PhoneNumber { get; set; }
+
+            [Required]
+            [Display(Name = "Home Address")]
+            public string Address { get; set; }
+
+            [Required]
+            [Display(Name = "Requested Role")]
+            public string RequestedRole { get; set; }
         }
 
         public async Task OnGetAsync(string returnUrl = null)
@@ -74,11 +95,34 @@ namespace ELearn.Areas.Identity.Pages.Account
             ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
             if (ModelState.IsValid)
             {
-                var user = new IdentityUser { UserName = Input.Email, Email = Input.Email };
+                var user = new Models.ApplicationUser
+                {
+                    UserName = Input.Email,
+                    Email = Input.Email,
+                    FirstName = Input.FirstName,
+                    LastName = Input.LastName,
+                    PhoneNumber = Input.PhoneNumber,
+                    Address = Input.Address
+                };
                 var result = await _userManager.CreateAsync(user, Input.Password);
                 if (result.Succeeded)
                 {
                     _logger.LogInformation("User created a new account with password.");
+
+                    // Assign Role
+
+                    if (Input.RequestedRole == "Student")
+                        await _userManager.AddToRoleAsync(user, Enums.Roles.Student.ToString());
+                    else if (Input.RequestedRole == "Lecturer")
+                        await _userManager.AddToRoleAsync(user, Enums.Roles.Lecturer.ToString());
+                    else if (Input.RequestedRole == "HOD")
+                        await _userManager.AddToRoleAsync(user, Enums.Roles.HeadOfDepartment.ToString());
+                    else if (Input.RequestedRole == "Sponsor")
+                        await _userManager.AddToRoleAsync(user, Enums.Roles.Sponsor.ToString());
+                    else if (Input.RequestedRole == "SubCo")
+                        await _userManager.AddToRoleAsync(user, Enums.Roles.SubjectCoordinator.ToString());
+
+                    //
 
                     var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);
                     code = WebEncoders.Base64UrlEncode(Encoding.UTF8.GetBytes(code));
